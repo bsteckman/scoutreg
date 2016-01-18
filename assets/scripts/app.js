@@ -10,8 +10,6 @@ function Registrant(firstName, lastName, position, email, phoneNumber, isAdult) 
     // this.healthForm = healthForm;
     // this.dateRegistered = dateRegistered;
     // this.shirtSize = shirtSize;
-    // this.isAdult = isAdult;
-
 }
 
 function Auth(packNumber, email) {
@@ -27,7 +25,7 @@ function addRegistrant() {
     var position;
     var email;
     var cellPhone;
-    var isAdult;
+    var isAdult = true;
     
     for (var i = 0; i < adult.length; i++) {
        
