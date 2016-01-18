@@ -20,7 +20,7 @@ function Auth(packNumber, email) {
     this.email = email;
 }
 
-function addAdult() {
+function addRegistrant() {
 
     var adult = document.querySelectorAll("input.registrant");
     var firstName;
@@ -39,14 +39,10 @@ function addAdult() {
             position = adult[i].value;
         } else if (adult[i].id === 'email') {
             email = adult[i].value;
-        } else if (adult[i].id === 'adultCellPhone') {
+        } else if (adult[i].id === 'cellPhone') {
             cellPhone = adult[i].value;
         }              
     }
     var adult1 = new Registrant(firstName, lastName, position, email, cellPhone, true)
     registrantList.push(adult1)
-}
-
-function addScout() {
-
 }
