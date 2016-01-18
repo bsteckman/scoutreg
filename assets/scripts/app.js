@@ -7,7 +7,6 @@ function Registrant(firstName, lastName, position, email, phoneNumber, isAdult) 
     this.email = email;
     this.phoneNumber = phoneNumber;
     this.isAdult = isAdult;
-    
     // this.healthForm = healthForm;
     // this.dateRegistered = dateRegistered;
     // this.shirtSize = shirtSize;
@@ -28,6 +27,7 @@ function addRegistrant() {
     var position;
     var email;
     var cellPhone;
+    var isAdult;
     
     for (var i = 0; i < adult.length; i++) {
        
@@ -41,8 +41,10 @@ function addRegistrant() {
             email = adult[i].value;
         } else if (adult[i].id === 'cellPhone') {
             cellPhone = adult[i].value;
-        }              
+        } else if (adult[i].id === 'isAdult'){
+            isAdult = adult[i].value;
+        }        
     }
-    var adult1 = new Registrant(firstName, lastName, position, email, cellPhone, true)
+    var adult1 = new Registrant(firstName, lastName, position, email, cellPhone, isAdult)
     registrantList.push(adult1)
 }
