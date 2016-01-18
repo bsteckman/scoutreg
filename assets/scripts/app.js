@@ -12,7 +12,7 @@ function Registerant(firstName, lastName, position, email, phoneNumber, contactN
      
 }
 
-function formData(packNumber, campNumber) {
+function Auth(packNumber, email) {
     this.packNumber = packNumber;
-    this.campNumber = campNumber;
+    this.email = email;
 }
