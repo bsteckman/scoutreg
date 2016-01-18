@@ -15,12 +15,13 @@
 </head>
 
 <body>
+    <div class="container-fluid">
 
-<div class= "row">
-    <h4>Two Adult Walking Leaders for up to 10 scouts. Add One Leader for every 5 additional scouts.</h4>
-    <h4>*ALL BSA registered adults MUST be Youth Protection Trained*</h4>
-</div>
-<h3>Please READ and fill out form completely.</h3>
+        <div class="row">
+            <h4>Two Adult Walking Leaders for up to 10 scouts. Add One Leader for every 5 additional scouts.</h4>
+            <h4>*ALL BSA registered adults MUST be Youth Protection Trained*</h4>
+        </div>
+        <h3>Please READ and fill out form completely.</h3>
 
     <form action="POST">
         <div class="form-group">
@@ -39,28 +40,65 @@
                 <input type="number" class="form-control registrant" id="cellPhone" placeholder="Required">
             </div>                                      
         </div>
-        <div class="form-group">
-            <label for="secondContactName">First Name:</label>
-            <input type="text" class="form-control" id="secondContactName" placeholder="Required">
-            <label for="secondContactName">Last Name:</label>
-            <input type="text" class="form-control" id="secondLastContactName" placeholder="Required">            
-            <label for="position">Position:</label>
-            <input type="text" class="form-control" id="position" placeholder="Required">
-            <label for="position">Email:</label>
-            <input type="email" class="form-control" id="email" placeholder="Required">  
-            <label for="position">Cell Phone</label>
-            <input type="number" class="form-control" id="cellPhone" placeholder="Required">                                      
-        </div>        
 
 
 
-    </form>
+            <table class="table table-striped">
+                <!--Table Headers-->
+                <tr>
+                    <th>Health Form</th>
+                    <th>scout/adult</th>
+                    <th>Name</th>
+                    <th>Shirt Size</th>
+                </tr>
+                <tr>
+                    <td>no</td>
+                    <td>adult</td>
+                    <td>Test Name</td>
+                    <td>xl</td>
+                </tr>
+                <!--Input-->
+                <tr>
+                    <td>
+                        <!--Health From Input-->
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+                            </label>
+                        </div>
+                    </td>
+                    <!--isAdult result-->
+                    <td>adult</td>
+                    <td>
+                        <!--Name Input-->
+                        <label for="secondContactName">First Name:</label>
+                        <input type="text" class="form-control" id="firstContactName" placeholder="Required">
+                        <label for="secondContactName">Last Name:</label>
+                        <input type="text" class="form-control" id="lastContactName" placeholder="Required">
+                    </td>
+                    <td>
+                        <!--Shirt Size Input-->
+                        <select class="form-control">
+                            <option>youth-sm</option>
+                            <option>youth-lg</option>
+                            <option>Adult-sm</option>
+                            <option>Adult-md</option>
+                            <option>Adult-lg</option>
+                            <option>Adult-xl</option>
+                            <option>Adult-2xl</option>
+                        </select>
+                    </td>
+                </tr>
+                <!--End Input-->
+            </table>
 
-    <div>
-        <button onclick = "addAdult()">Add adult</button>
-        <button onclick = "addScout()">Add scout</button>
-    </div>
-<button>Submit</button>
+        </form>
+
+        <div>
+            <button onclick="addAdult()">Add adult</button>
+            <button onclick="addScout()">Add scout</button>
+        </div>
+        <button>Submit</button>
 </body>
 
 <!-- Latest compiled and minified JavaScript -->
