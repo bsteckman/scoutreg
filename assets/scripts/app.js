@@ -15,3 +15,14 @@ function Auth(packNumber, email) {
     this.packNumber = packNumber;
     this.email = email;
 }
+
+function addAdult() {
+   var adult = document.querySelectorAll("input.registrant");
+   for (var i = adult) {
+       var dummy = "dummy";
+   } 
+}
+
+function addScout() {
+    
+}
