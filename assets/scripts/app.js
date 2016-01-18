@@ -19,7 +19,7 @@ function Auth(packNumber, email) {
 
 function addRegistrant() {
 
-    var adult = document.querySelectorAll("input.registrant");
+    var registrant = document.querySelectorAll("input.registrant");
     var firstName;
     var lastName;
     var position;
@@ -27,24 +27,24 @@ function addRegistrant() {
     var cellPhone;
     var isAdult = true;
     
-    for (var i = 0; i < adult.length; i++) {
+    for (var i = 0; i < registrant.length; i++) {
        
-        if (adult[i].id === 'firstContactName') {
-            firstName = adult[i].value;
-        } else if (adult[i].id === 'lastContactName') {
-            lastName = adult[i].value;
-        } else if (adult[i].id === 'position') {
-            position = adult[i].value;
-        } else if (adult[i].id === 'email') {
-            email = adult[i].value;
-        } else if (adult[i].id === 'cellPhone') {
-            cellPhone = adult[i].value;
-        } else if (adult[i].id === 'isAdult'){
-            isAdult = adult[i].value;
+        if (registrant[i].id === 'firstContactName') {
+            firstName = registrant[i].value;
+        } else if (registrant[i].id === 'lastContactName') {
+            lastName = registrant[i].value;
+        } else if (registrant[i].id === 'position') {
+            position = registrant[i].value;
+        } else if (registrant[i].id === 'email') {
+            email = registrant[i].value;
+        } else if (registrant[i].id === 'cellPhone') {
+            cellPhone = registrant[i].value;
+        } else if (registrant[i].id === 'isAdult'){
+            isAdult = registrant[i].value;
         }        
     }
-    var adult1 = new Registrant(firstName, lastName, position, email, cellPhone, isAdult)
-    registrantList.push(adult1)
+    var registrant1 = new Registrant(firstName, lastName, position, email, cellPhone, isAdult)
+    registrantList.push(registrant1)
     
     update();
 }
