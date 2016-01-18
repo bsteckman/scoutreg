@@ -44,6 +44,7 @@ function addAdult() {
         }              
     }
     var adult1 = new Registrant(firstName, lastName, position, email, cellPhone, isAdult)
+    registrantList.push(adult1)
 }
 
 function addScout() {
