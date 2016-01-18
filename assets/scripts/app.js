@@ -6,7 +6,7 @@ function Registrant(firstName, lastName, position, email, phoneNumber, isAdult) 
     this.position = position;
     this.email = email;
     this.phoneNumber = phoneNumber;
-    this.isAdult = 'true';
+    this.isAdult = isAdult;
     
     // this.healthForm = healthForm;
     // this.dateRegistered = dateRegistered;
