@@ -1,6 +1,6 @@
 var registrantList = []
 
-function Registrant(firstName, lastName, position, email, phoneNumber, isAdult) {
+function Registrant(firstName, lastName, position, email, phoneNumber) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.position = position;
@@ -28,6 +28,7 @@ function addRegistrant() {
     var position;
     var email;
     var cellPhone;
+    var isAdult;
     
     for (var i = 0; i < adult.length; i++) {
        
@@ -41,8 +42,10 @@ function addRegistrant() {
             email = adult[i].value;
         } else if (adult[i].id === 'cellPhone') {
             cellPhone = adult[i].value;
-        }              
+        } else if (adult[i].id === 'isBool'){
+            isAdult = adult[i].value;
+        }        
     }
-    var adult1 = new Registrant(firstName, lastName, position, email, cellPhone, true)
+    var adult1 = new Registrant(firstName, lastName, position, email, cellPhone)
     registrantList.push(adult1)
 }
