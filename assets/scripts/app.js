@@ -3,12 +3,12 @@ function Registrant(firstName, lastName, position, email, phoneNumber, healthFor
     this.lastName = lastName;
     this.position = position;
     this.email = email;
-    this.phoneNumber=phoneNumber;
+    this.phoneNumber = phoneNumber;
     this.healthForm = healthForm;
     this.dateRegistered = dateRegistered;
     this.shirtSize = shirtSize;
     this.isAdult = isAdult;
-     
+
 }
 
 function Auth(packNumber, email) {
@@ -17,12 +17,12 @@ function Auth(packNumber, email) {
 }
 
 function addAdult() {
-   var adult = document.querySelectorAll("input.registrant");
-   for (var i = adult) {
-       var dummy = "dummy";
-   } 
+    var adult = document.querySelectorAll("input.registrant");
+//     for (var i = adult) {
+//         var dummy = "dummy";
+//    } 
 }
 
 function addScout() {
-    
+
 }
