@@ -1,3 +1,5 @@
+var registrantList = []
+
 function Registrant(firstName, lastName, position, email, phoneNumber, healthForm, dateRegistered, shirtSize, isAdult) {
     this.firstName = firstName;
     this.lastName = lastName;
