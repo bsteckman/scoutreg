@@ -45,4 +45,22 @@ function addRegistrant() {
     }
     var adult1 = new Registrant(firstName, lastName, position, email, cellPhone, isAdult)
     registrantList.push(adult1)
+    
+    update();
+}
+
+function update() {
+    if (registrantList.length  <=1) {
+        addSecondAdult();
+    } else if (registrantList.length <=2) {
+        addTableLogic();
+    }
+}
+
+function addSecondAdult() {
+    
+}
+
+function addTableLogic() {
+    
 }
