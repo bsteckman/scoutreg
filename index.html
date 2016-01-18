@@ -54,34 +54,52 @@
             </div>
 
             <table class="table table-striped">
+                <!--Table Headers-->
                 <tr>
                     <th>Health Form</th>
                     <th>scout/adult</th>
                     <th>Name</th>
-                    <th>Date Registered</th>
                     <th>Shirt Size</th>
                 </tr>
                 <tr>
                     <td>no</td>
                     <td>adult</td>
                     <td>Test Name</td>
-                    <td>01 01 1991</td>
                     <td>xl</td>
                 </tr>
+                <!--Input-->
                 <tr>
-                    <td>no</td>
+                    <td>
+                        <!--Health From Input-->
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+                            </label>
+                        </div>
+                    </td>
+                    <!--isAdult result-->
                     <td>adult</td>
-                    <td>Test Name</td>
-                    <td>01 01 1991</td>
-                    <td>xl</td>
+                    <td>
+                        <!--Name Input-->
+                        <label for="secondContactName">First Name:</label>
+                        <input type="text" class="form-control" id="firstContactName" placeholder="Required">
+                        <label for="secondContactName">Last Name:</label>
+                        <input type="text" class="form-control" id="lastContactName" placeholder="Required">
+                    </td>
+                    <td>
+                        <!--Shirt Size Input-->
+                        <select class="form-control">
+                            <option>youth-sm</option>
+                            <option>youth-lg</option>
+                            <option>Adult-sm</option>
+                            <option>Adult-md</option>
+                            <option>Adult-lg</option>
+                            <option>Adult-xl</option>
+                            <option>Adult-2xl</option>
+                        </select>
+                    </td>
                 </tr>
-                <tr>
-                    <td>no</td>
-                    <td>adult</td>
-                    <td>Test Name</td>
-                    <td>01 01 1991</td>
-                    <td>xl</td>
-                </tr>
+                <!--End Input-->
             </table>
 
         </form>
