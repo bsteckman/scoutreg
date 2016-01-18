@@ -43,7 +43,7 @@ function addAdult() {
             cellPhone = adult[i].value;
         }              
     }
-    var adult1 = new Registrant(firstName, lastName, position, email, cellPhone, isAdult)
+    var adult1 = new Registrant(firstName, lastName, position, email, cellPhone, true)
     registrantList.push(adult1)
 }
 
