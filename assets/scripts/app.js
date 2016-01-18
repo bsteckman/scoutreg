@@ -18,9 +18,9 @@ function Auth(packNumber, email) {
 
 function addAdult() {
     var adult = document.querySelectorAll("input.registrant");
-//     for (var i = adult) {
-//         var dummy = "dummy";
-//    } 
+    for (var i = 0; i < adult.length; i++) {
+        console.log(adult[i].value);
+    }
 }
 
 function addScout() {
