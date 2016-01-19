@@ -46,3 +46,12 @@ function addSecondAdult() {
 function addTableLogic() {
 
 }
+
+
+
+
+
+    for(var i = 0; i < Registrant.length; i++){
+        var registrantElem = document.createElement('td');
+        registrantElem.textContent = Registrant[i].name;
+        document.getElementById('table-Display').appendChild(registrantElem);
