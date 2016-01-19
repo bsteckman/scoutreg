@@ -110,7 +110,3 @@ function update() {
     // write registrantList to table
 }
 
-$("#second-btn").click(function () {
-    document.getElementById("close-btn").click();
-    document.getElementById("modal-btn").click();
-});
