@@ -35,9 +35,23 @@ function addContact(e, form){
     registrantList.push(registrant1);
     // clear form
     form.reset();
-    form.setAttribute("style","display: none");
+    //form.setAttribute("style","display: none");
+    document.getElementById("close-btn").click();
+    if (document.getElementById("modal-btn").innerText == "Set Secondary Contact") {
+        document.getElementById("modal-btn").remove();
+        return;
+    } else {
+        document.getElementById("modal-btn").innerText = "Set Secondary Contact";       
+    }
+      
+   
 }
 
 function update() {
     // write registrantList to table
 }
+
+$("#second-btn").click(function () {
+    document.getElementById("close-btn").click();
+    document.getElementById("modal-btn").click();
+});

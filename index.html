@@ -26,57 +26,83 @@
         <div>
             <h3 class="col-sm-offset-4 col-sm-6 ">Please READ and fill out form completely.</h3>
         </div>
-        <!--Start Contact Form-->
-        <form action="POST" id="contact" onsubmit="addContact(event, this)">
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-offset-1 col-sm-4">
-                        <label for="firstContactName">First Name:</label>
-                        <input type="text" class="form-control registrant" name="firstName" placeholder="Required">
+
+        <!-- Button trigger modal -->
+        <button id ="modal-btn" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+            Add Primary Contacts
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button id ="modal-btn" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
                     </div>
-                    <div class="col-xs-12 col-sm-offset-2 col-sm-4">
-                        <label for="lastContactName">Last Name:</label>
-                        <input type="text" class="form-control registrant" name="lastName" placeholder="Required">
+                    <div class="modal-body">
+                        <form action="POST" id="contact" onsubmit="addContact(event, this)">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-offset-1 col-sm-4">
+                                        <label for="firstContactName">First Name:</label>
+                                        <input type="text" class="form-control registrant" name="firstName" placeholder="Required">
+                                    </div>
+                                    <div class="col-xs-12 col-sm-offset-2 col-sm-4">
+                                        <label for="lastContactName">Last Name:</label>
+                                        <input type="text" class="form-control registrant" name="lastName" placeholder="Required">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-offset-1 col-sm-2">
+                                        <label for="position">Position:</label>
+                                        <input type="text" class="form-control registrant" name="position" placeholder="Required">
+                                    </div>
+                                    <div class="col-xs-12 col-sm-offset-1 col-sm-4">
+                                        <label for="email">Email:</label>
+                                        <input type="email" class="form-control registrant" name="email" placeholder="Required">
+                                    </div>
+                                    <div class="col-xs-12 col-sm-offset-1 col-sm-2">
+                                        <label for="cellPhone">Cell Phone</label>
+                                        <input type="number" class="form-control registrant" name="phoneNumber" placeholder="Required">
+                                    </div>
+                                </div>
+                            </div>
+                        <button type="submit" class="btn btn-primary">Save changes</button>                        
+
+                        </form>
+                        <!--End contact form-->
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-12 col-sm-offset-1 col-sm-2">
-                        <label for="position">Position:</label>
-                        <input type="text" class="form-control registrant" name="position" placeholder="Required">
-                    </div>
-                    <div class="col-xs-12 col-sm-offset-1 col-sm-4">
-                        <label for="email">Email:</label>
-                        <input type="email" class="form-control registrant" name="email" placeholder="Required">
-                    </div>
-                    <div class="col-xs-12 col-sm-offset-1 col-sm-2">
-                        <label for="cellPhone">Cell Phone</label>
-                        <input type="number" class="form-control registrant" name="phoneNumber" placeholder="Required">
+                    <div class="modal-footer">
+                        <button id = "close-btn" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
-            <button type="submit">Whatevs </button>
-        </form>
-        <!--End contact form-->
+        </div>
+
+
+        <!--Start Contact Form-->
+
         <!--Add second contact form and add this all to a modal-->
 
-            <table class="table table-striped">
-                <!--Table Headers-->
-                <div class="row">
+        <table class="table table-striped">
+            <!--Table Headers-->
+            <div class="row">
                 <tr>
                     <th class="col-sm-1 col-xs-12">Health Form</th>
                     <th class="col-sm-1 col-xs-12">scout/adult</th>
                     <th class="col-sm-8 col-xs-12">Name</th>
                     <th class="col-sm-2 col-xs-12">Shirt Size</th>
                 </tr>
-                </div>
-                <tr>
-                    <td>no</td>
-                    <td>adult</td>
-                    <td>Test Name</td>
-                    <td>xl</td>
-                </tr>
-                <!--Input-->
-                <div class="row">
+            </div>
+            <tr>
+                <td>no</td>
+                <td>adult</td>
+                <td>Test Name</td>
+                <td>xl</td>
+            </tr>
+            <!--Input-->
+            <div class="row">
                 <tr>
                     <td class="col-sm-1 col-xs-12">
                         <!--Health From Input-->
@@ -91,14 +117,12 @@
 
                         <div class="radio">
                             <label>
-                                <input type="radio" name="blankRadio" id="blankRadio1" value="option1" aria-label="...">
-                                Adult
+                                <input type="radio" name="blankRadio" id="blankRadio1" value="option1" aria-label="..."> Adult
                             </label>
                         </div>
                         <div class="radio">
                             <label>
-                                <input type="radio" name="blankRadio" id="blankRadio1" value="option1" aria-label="...">
-                                Scout
+                                <input type="radio" name="blankRadio" id="blankRadio1" value="option1" aria-label="..."> Scout
                             </label>
                         </div>
 
@@ -106,16 +130,16 @@
                     <td>
                         <!--Name Input-->
                         <div class="col-sm-6 col-xs-12">
-                        <label for="secondContactName"></label>
-                        <input type="text" class="form-control" id="firstContactName" placeholder="First Name">
-                        
-                        
-                      </div>
-                      <div class="col-sm-6 col-xs-12">
-                        <label for="secondContactName"></label>
-                        <input type="text" class="form-control" id="lastContactName" placeholder="Last Name">
-                        
-                        
+                            <label for="secondContactName"></label>
+                            <input type="text" class="form-control" id="firstContactName" placeholder="First Name">
+
+
+                        </div>
+                        <div class="col-sm-6 col-xs-12">
+                            <label for="secondContactName"></label>
+                            <input type="text" class="form-control" id="lastContactName" placeholder="Last Name">
+
+
                         </div>
                     </td>
                     <td>
@@ -132,9 +156,9 @@
                         </select>
                     </td>
                 </tr>
-                </div>
-                <!--End Input-->
-            </table>
+            </div>
+            <!--End Input-->
+        </table>
 
         <!--</form>-->
 
@@ -152,7 +176,7 @@
 
 <!-- Latest compiled and minified JavaScript -->
 
-<script src="assets/js/jquery-2.2.0.min.js"></script>
+<script src="assets/scripts/jquery-2.2.0.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
 crossorigin="anonymous"></script>
 <script src="assets/scripts/app.js"></script>
