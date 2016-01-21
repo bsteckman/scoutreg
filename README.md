@@ -5,4 +5,4 @@ Ore-Ida reg form
 
 Members
 --------
-- Jake Overall
+- [x] Jake Overall
