@@ -72,14 +72,14 @@ DayCamps.push(camp24);
 
 var registrantList = [];
 
-function Registrant(firstName, lastName, position, email, phoneNumber, isAdult) {
+function Registrant(firstName, lastName, position, email, phoneNumber, isAdult, contact) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.position = position;
     this.email = email;
     this.phoneNumber = phoneNumber;
     this.isAdult = isAdult;
-    this.contact = null;
+    this.contact = contact;
 
     
     // Add these later
@@ -104,6 +104,7 @@ function addRegistrant(e, form) {
     var email = form['email'].value;
     var phoneNumber = form['phoneNumber'].value;
     var isAdult = true;
+    var contact = form['contact-id'].value;
     //pass to constructor 
     var registrant1 = new Registrant(firstName, lastName, position, email, phoneNumber, isAdult);
     registrantList.push(registrant1);
