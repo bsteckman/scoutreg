@@ -14,7 +14,7 @@
 
 </head>
 
-<body>
+<body onload="displayModal()">
     <div class="container-fluid">
 
         <div class="row">
@@ -27,23 +27,22 @@
             <h3 class="col-sm-offset-4 col-sm-6 ">Please READ and fill out form completely.</h3>
         </div>
 
-        <!-- Button group modal -->
-
+<!-- Button group modal -->
+        
         <div class="btn-group-vertical" role="group" aria-label="...">
-            <button id="my-modal-btn" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#primary-contacts-modal"
-            onclick="populateForm()">
+            <button id="primary-modal-btn" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#primary-contacts-modal">
                 Add Primary Contacts
             </button>
-            <button id="my-modal-btn" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#secondary-contacts-modal">
+            <button id="secondary-modal-btn" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#secondary-contacts-modal">
                 Add Secondary Contacts
             </button>
-            <button id="my-modal-btn" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#registrant-modal">
+            <button id="registrant-modal-btn" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#registrant-modal">
                 Add Registrant
             </button>
         </div>
 
-
         <!-- Primary Contacts Modal -->
+
         <div class="modal fade" id="primary-contacts-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -52,7 +51,7 @@
                         <h4 class="modal-title" id="myModalLabel">Primary Contact</h4>
                     </div>
                     <div class="modal-body">
-                        <form id="contact" onsubmit="addRegistrant(event, this)">
+                        <form id="contact" onsubmit="addRegistrant(event, this, contact)">
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-6">
@@ -77,6 +76,11 @@
                                         <label for="cellPhone">Cell Phone:</label>
                                         <input type="text" class="form-control registrant" name="phoneNumber" placeholder="Phone Number" data-format="+1 (ddd) ddd-dddd">
                                     </div>
+                                    <div>
+                                        <input type="hidden" class="form-control registrant" name="contact-id" value="primary">
+                                        <input type="hidden" class="form-control registrant" name="isAdult" value="primary">
+                                                                                                                                                               
+                                    </div>
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary">Save changes</button>
@@ -85,17 +89,14 @@
                         <!--End contact form-->
                     </div>
                     <div class="modal-footer">
-                        <button id="close-btn" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" id="primary-close-btn" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
         </div>
 
-
-
-
-
         <!-- Secondary Contacts Modal -->
+        
         <div class="modal fade" id="secondary-contacts-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -129,6 +130,10 @@
                                         <label for="cellPhone">Cell Phone:</label>
                                         <input type="text" class="form-control registrant" name="phoneNumber" placeholder="Phone Number" data-format="+1 (ddd) ddd-dddd">
                                     </div>
+                                    <div>
+                                        <input type="hidden" class="form-control registrant" name="contact-id" value="secondary">
+                                        <input type="hidden" class="form-control registrant" name="isAdult" value="secondary">                                        
+                                    </div>                                    
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary">Save changes</button>
@@ -137,15 +142,13 @@
                         <!--End contact form-->
                     </div>
                     <div class="modal-footer">
-                        <button id="close-btn" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" id="secondary-close-btn" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- Registrant Modal -->
-
-
 
         <div class="modal fade" id="registrant-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
@@ -187,7 +190,7 @@
                                             </label>
                                         </div>
                                     </div>
-                                    <div class="col-xs-12 col-sm-3">
+                                    <div class="col-xs-12 col-sm-3" id="tShirt">
                                         <select class="form-control col-sm-2 col-xs-12" id=adjustPdng>
                                             <option> Shirt size</option>
                                             <option>youth-md</option>
@@ -199,6 +202,9 @@
                                             <option>Adult-2xl</option>
                                         </select>
                                     </div>
+                                    <div>
+                                        <input type="hidden" class="form-control registrant" name="isAdult" value="scout">                                        
+                                    </div>                                    
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary">Save changes</button>
@@ -206,7 +212,7 @@
                         <!--End contact form-->
                     </div>
                     <div class="modal-footer">
-                        <button id="close-btn" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button id="scout-close-btn" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
