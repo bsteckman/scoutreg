@@ -41,7 +41,7 @@
                         <h4 class="modal-title" id="myModalLabel">Modal title</h4>
                     </div>
                     <div class="modal-body">
-                        <form id="contact" onsubmit="addContact(event, this)">
+                        <form id="contact" onsubmit="addRegistrant(event, this)">
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-offset-1 col-sm-4">
@@ -68,7 +68,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" onclick="addRegistrant(e, form)" class="btn btn-primary">Save changes</button>
+                            <button onclick="addRegistrant()" class="btn btn-primary">Save changes</button>
 
                         </form>
                         <!--End contact form-->
@@ -78,10 +78,11 @@
                     </div>
                 </div>
             </div>
-            <button type="submit">Whatevs </button>
-            </form>
-            <!--there should be a second section here-->
-            <!--<div class="form-group">
+        </div>
+        <button type="submit">Whatevs </button>
+        </form>
+        <!--there should be a second section here-->
+        <!--<div class="form-group">
                 <label for="secondContactName">First Name:</label>
                 <input type="text" class="form-control" id="firstContactName" placeholder="Required">
                 <label for="secondContactName">Last Name:</label>
@@ -95,103 +96,103 @@
             </div>-->
 
 
-            <table class="table table-striped" id="table-Display">
+        <table class="table table-striped" id="table-Display">
+            <!--Table Headers-->
+            <div class="row">
+            </div>
+
+
+            <!--Start Contact Form-->
+
+            <!--Add second contact form and add this all to a modal-->
+
+            <table class="table table-striped">
                 <!--Table Headers-->
                 <div class="row">
-                </div>
-
-
-                <!--Start Contact Form-->
-
-                <!--Add second contact form and add this all to a modal-->
-
-                <table class="table table-striped">
-                    <!--Table Headers-->
-                    <div class="row">
-                        <tr>
-                            <th class="col-sm-1 col-xs-12">Health Form</th>
-                            <th class="col-sm-1 col-xs-12">scout/adult</th>
-                            <th class="col-sm-8 col-xs-12">Name</th>
-                            <th class="col-sm-2 col-xs-12">Shirt Size</th>
-                        </tr>
-                    </div>
                     <tr>
-                        <td>no</td>
-                        <td>adult</td>
-                        <td>Test Name</td>
-                        <td>xl</td>
+                        <th class="col-sm-1 col-xs-12">Health Form</th>
+                        <th class="col-sm-1 col-xs-12">scout/adult</th>
+                        <th class="col-sm-8 col-xs-12">Name</th>
+                        <th class="col-sm-2 col-xs-12">Shirt Size</th>
                     </tr>
-                    <!--Input-->
-                    <div class="row">
-                        <tr>
-                            <td class="col-sm-1 col-xs-12">
-                                <!--Health From Input-->
-                                <div class="checkbox chkboxadjust">
-                                    <label>
-                                        <input type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
-                                    </label>
-                                </div>
-                            </td>
-                            <!--isAdult result-->
-                            <td class="col-sm-1 col-xs-12">
-
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="blankRadio" id="blankRadio1" value="option1" aria-label="..."> Adult
-                                    </label>
-                                </div>
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="blankRadio" id="blankRadio1" value="option1" aria-label="..."> Scout
-                                    </label>
-                                </div>
-
-                            </td>
-                            <td>
-                                <!--Name Input-->
-                                <div class="col-sm-6 col-xs-12">
-                                    <label for="secondContactName"></label>
-                                    <input type="text" class="form-control" id="firstContactName" placeholder="First Name">
-
-
-                                </div>
-                                <div class="col-sm-6 col-xs-12">
-                                    <label for="secondContactName"></label>
-                                    <input type="text" class="form-control" id="lastContactName" placeholder="Last Name">
-
-
-                                </div>
-                            </td>
-                            <td>
-                                <!--Shirt Size Input-->
-                                <select class="form-control col-sm-2 col-xs-12" id=adjustPdng>
-                                    <option> None</option>
-                                    <option>youth-md</option>
-                                    <option>youth-lg</option>
-                                    <option>Adult-sm</option>
-                                    <option>Adult-md</option>
-                                    <option>Adult-lg</option>
-                                    <option>Adult-xl</option>
-                                    <option>Adult-2xl</option>
-                                </select>
-                            </td>
-                        </tr>
-                    </div>
-                    <!--End Input-->
-                </table>
-
-                <!--</form>-->
-
-                <div class="row">
-                    <div class="col-xs-12 col-sm-4 col-sm-offset-5 margn-bottom">
-                        <button onclick="addRegistrant()">Add Registrant</button>
-                    </div>
                 </div>
+                <tr>
+                    <td>no</td>
+                    <td>adult</td>
+                    <td>Test Name</td>
+                    <td>xl</td>
+                </tr>
+                <!--Input-->
                 <div class="row">
-                    <div class="col-xs-12  col-sm-4 col-sm-offset-5">
-                        <button>Submit Final Form</button>
-                    </div>
+                    <tr>
+                        <td class="col-sm-1 col-xs-12">
+                            <!--Health From Input-->
+                            <div class="checkbox chkboxadjust">
+                                <label>
+                                    <input type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+                                </label>
+                            </div>
+                        </td>
+                        <!--isAdult result-->
+                        <td class="col-sm-1 col-xs-12">
+
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="blankRadio" id="blankRadio1" value="option1" aria-label="..."> Adult
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="blankRadio" id="blankRadio1" value="option1" aria-label="..."> Scout
+                                </label>
+                            </div>
+
+                        </td>
+                        <td>
+                            <!--Name Input-->
+                            <div class="col-sm-6 col-xs-12">
+                                <label for="secondContactName"></label>
+                                <input type="text" class="form-control" id="firstContactName" placeholder="First Name">
+
+
+                            </div>
+                            <div class="col-sm-6 col-xs-12">
+                                <label for="secondContactName"></label>
+                                <input type="text" class="form-control" id="lastContactName" placeholder="Last Name">
+
+
+                            </div>
+                        </td>
+                        <td>
+                            <!--Shirt Size Input-->
+                            <select class="form-control col-sm-2 col-xs-12" id=adjustPdng>
+                                <option> None</option>
+                                <option>youth-md</option>
+                                <option>youth-lg</option>
+                                <option>Adult-sm</option>
+                                <option>Adult-md</option>
+                                <option>Adult-lg</option>
+                                <option>Adult-xl</option>
+                                <option>Adult-2xl</option>
+                            </select>
+                        </td>
+                    </tr>
                 </div>
+                <!--End Input-->
+            </table>
+
+            <!--</form>-->
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-4 col-sm-offset-5 margn-bottom">
+                    <button onclick="addRegistrant()">Add Registrant</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12  col-sm-4 col-sm-offset-5">
+                    <button>Submit Final Form</button>
+                </div>
+            </div>
 </body>
 
 <!-- Latest compiled and minified JavaScript -->

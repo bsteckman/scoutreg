@@ -95,7 +95,7 @@ function addRegistrant(e, form) {
     // clear form
     form.reset();
     //form.setAttribute("style","display: none");
-    // document.getElementById("close-btn").click();
+    document.getElementById("close-btn").click();
     if (document.getElementById("my-modal-btn").innerText == "Set Secondary Contact") {
         document.getElementById("my-modal-btn").remove();
         return;
