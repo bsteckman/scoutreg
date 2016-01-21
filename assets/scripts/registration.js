@@ -47,7 +47,7 @@ function addRegistrant(e, form) {
     var isAdult = true;
     var contact = form['contact-id'].value;
     //pass to constructor 
-    var registrant1 = new Registrant(firstName, lastName, position, email, phoneNumber, isAdult);
+    var registrant1 = new Registrant(firstName, lastName, position, email, phoneNumber, isAdult, contact);
     registrantList.push(registrant1);
     // clear form
     form.reset();
