@@ -18,16 +18,30 @@
 </head>
 <body>
     <div class="row-sm"><!--Main Div opens here-->
-        <header class="text-center bold">Ore-Ida Council 2016 Day Camp Registration Form</header>
-        <img src="assets/img/Ore-Ida-Camp-2016-Design.jpg" alt="Awesome Logo for this year's Day Camp">
-        <div class="col-sm-6 offset-3"><!--button box start-->
+        <header class="text-center bold font-color-white">Ore-Ida Council 2016 Day Camp Registration Form</header>
+        <img src="assets/img/Ore-Ida-Camp-2016-Design.jpg" alt="Awesome Logo for this year's Day Camp" class="img-circle">
+        <div class="col-sm-6 col-sm-offset-3"><!--button box start-->
             <input type="email" name="email">
             <label for="email">Email</label>
             <input type="number" name="troop number">
             <label for="troop number">Troop Number</label>
-            <input type="" name="camp">
-            <label for="camp">Choose your camp here</label>
+            
+            <div class="dropdown"><!--drop-down button stuff starts here-->
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Select your camp choice here
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <li><a href="#">Action</a></li>
+    <li><a href="#">Another action</a></li>
+    <li><a href="#">Something else here</a></li>
+    <li role="separator" class="divider"></li>
+    <li><a href="#">Separated link</a></li>
+  </ul>
+</div><!--drop-down button stuff ends here-->
+
         </div><!--button box end-->
+        <footer>Footer text goes here ...</footer>
     </div><!--Main Div closes here-->
 </body>
 </html>
