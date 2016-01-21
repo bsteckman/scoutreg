@@ -79,7 +79,7 @@ function Registrant(firstName, lastName, position, email, phoneNumber, isAdult) 
 // }
 
 
-function addContact(e, form){
+function addRegistrant(e, form) {
     // Prevent page reload
     e.preventDefault();
     // define values
@@ -100,26 +100,19 @@ function addContact(e, form){
         document.getElementById("modal-btn").remove();
         return;
     } else {
-        document.getElementById("modal-btn").innerText = "Set Secondary Contact";       
+        document.getElementById("modal-btn").innerText = "Set Secondary Contact";
     }
-      
-   
 }
 
 function update() {
     // write registrantList to table
+    for (var i = 0; i < Registrant.length; i++) {
+        var registrantElem = document.createElement('td');
+        registrantElem.textContent = Registrant[i].name;
+        document.getElementById('table-Display').appendChild(registrantElem);
+    }
 }
 
 function addTableLogic() {
 
 }
-
-
-
-
-
-    for(var i = 0; i < Registrant.length; i++){
-        var registrantElem = document.createElement('td');
-        registrantElem.textContent = Registrant[i].name;
-        document.getElementById('table-Display').appendChild(registrantElem);
-
