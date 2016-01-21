@@ -30,7 +30,7 @@
 <!-- Button group modal -->
         
         <div class="btn-group-vertical" role="group" aria-label="...">
-            <button id="primary-modal-btn" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#primary-contacts-modal" onclick="populateForm()">
+            <button id="primary-modal-btn" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#primary-contacts-modal">
                 Add Primary Contacts
             </button>
             <button id="secondary-modal-btn" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#secondary-contacts-modal">
@@ -51,7 +51,7 @@
                         <h4 class="modal-title" id="myModalLabel">Primary Contact</h4>
                     </div>
                     <div class="modal-body">
-                        <form id="contact" onsubmit="addRegistrant(event, this)">
+                        <form id="contact" onsubmit="addRegistrant(event, this, contact)">
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-6">
@@ -76,6 +76,10 @@
                                         <label for="cellPhone">Cell Phone:</label>
                                         <input type="text" class="form-control registrant" name="phoneNumber" placeholder="Phone Number" data-format="+1 (ddd) ddd-dddd">
                                     </div>
+                                    <div>
+                                        <label for="contact-id"></label>
+                                        <input type="text" class="form-control registrant" name="contact-id" value="primary" hidden= "hidden">                                        
+                                    </div>
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary">Save changes</button>
@@ -84,7 +88,7 @@
                         <!--End contact form-->
                     </div>
                     <div class="modal-footer">
-                        <button id="close-btn" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" id="close-btn" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
@@ -124,6 +128,10 @@
                                         <label for="cellPhone">Cell Phone:</label>
                                         <input type="text" class="form-control registrant" name="phoneNumber" placeholder="Phone Number" data-format="+1 (ddd) ddd-dddd">
                                     </div>
+                                    <div>
+                                        <label for="contact-id"></label>
+                                        <input type="text" class="form-control registrant" name="contact-id" value="secondary" hidden= "hidden">                                        
+                                    </div>                                    
                                 </div>
                             </div>
                             <button type= "submit" class="btn btn-primary">Save changes</button>
@@ -132,7 +140,7 @@
                         <!--End contact form-->
                     </div>
                     <div class="modal-footer">
-                        <button id="close-btn" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" id="close-btn" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
@@ -179,7 +187,7 @@
                                             </label>
                                         </div>
                                     </div>
-                                    <div class="col-xs-12 col-sm-3">
+                                    <div class="col-xs-12 col-sm-3" id="tShirt">
                                         <select class="form-control col-sm-2 col-xs-12" id=adjustPdng>
                                             <option> Shirt size</option>
                                             <option>youth-md</option>
