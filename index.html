@@ -13,17 +13,14 @@
     <h1>Welcome to Scout Camp!<h1>
         
      <div>
-         <input type="email" id="email" placeholder="email" required/>
-         <br>
-         <input type="text" id="number" placeholder="Troop Number" required/> 
-         <form id="myForm" onsubmit="submitRegistration()">
-              <select id="selectCamp">
-                   <option>--- Choose a camp ---</option>
-              </select>
-         <button type="submit">Sumbit</button>
-         </form>    
-         
-         
+        <form method="registration.html" method="POST" id="myForm">
+            <input type="email" placeholder="email" name="email" required/>
+            <input type="text" id="number" placeholder="Troop Number" required/>
+            <select id="selectCamp">
+                <option>--- Choose a camp ---</option>
+            </select>
+            <input type="submit"></input>
+        </form>
      </div> 
 
           
