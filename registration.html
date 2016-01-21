@@ -1,17 +1,17 @@
 <html>
 
 <head>
-
     <meta charset="UTF-8">
-    <title>Registration Form</title>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
-    crossorigin="anonymous">
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r"
-    crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/styles/registration-style.css">
-
+    <title>Ore-Ida Council Summer 2016 Camp Registration Form</title>
+    <!-- Material Design fonts -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+    <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Material Design -->
+    <link href="assets/plugins/bootstrap-material/dist/css/bootstrap-material-design.css" rel="stylesheet">
+    <link href="assets/plugins/bootstrap-material/dist/css/ripples.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles/style.css" />
 </head>
 
 <body onload="displayModal()">
@@ -221,8 +221,54 @@
 
         <!--</form>-->
 
+        <!--DISPLAY STUFF HERE-->
 
-    <!--<div class="row">
+        <div class="bs-component">
+            <div class="panel panel-default main-list">
+
+                <div class="clearfix">
+                    <div class="col-sm-1 text-center">
+                        <h4>Health Form</h4>
+                    </div>
+                </div>
+
+                <ul class="list-group" id="registrant-list">
+                    <!--FIRST THING-->
+                    <li class="list-group-item">
+                        <div class="list-group-item">
+                            <div class="row-action-primary checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                </label>
+                            </div>
+                            <div class="row-content">
+                                <h4 class="list-group-item-heading">John Smith</h4>
+                                <p class="list-group-item-text">Shirt Size: AL</p>
+                            </div>
+                        </div>
+                    </li>
+                    <!--NEW THING-->
+                    <li class="list-group-separator"></li>
+                    <li class="list-group-item">
+                        <div class="list-group-item">
+                            <div class="row-action-primary checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                </label>
+                            </div>
+                            <div class="row-content">
+                                <h4 class="list-group-item-heading">John Smith</h4>
+                                <p class="list-group-item-text">Shirt Size: AL</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+
+        <!--<div class="row">
         <div class="col-xs-12  col-sm-4 col-sm-offset-5">
             <button onclick="thankYouPage()">Submit Final Form</button>
         </div>
@@ -263,6 +309,16 @@
 <script src="assets/scripts/jquery-2.2.0.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
 crossorigin="anonymous"></script>
+<script src="assets/plugins/bootstrap-material/dist/js/ripples.min.js"></script>
+<script src="assets/plugins/bootstrap-material/dist/js/material.min.js"></script>
 <script src="assets/scripts/registration.js"></script>
+
+
+
+<!--START MATERIAL THEME-->
+<script>
+    $.material.init()
+
+</script>
 
 </html>

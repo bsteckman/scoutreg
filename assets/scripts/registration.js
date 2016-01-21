@@ -80,10 +80,13 @@ function update() {
     var ylgShirts = 0;
     var ymdShirts = 0;
     //iterate over the list
+    $('#registrant-list').empty();
     for (var i = 0; i < registrantList.length; i++) {
         //read object 
         var currentUser = registrantList[i];
         //write to page
+        var myTemplate = '<li class="list-group-item"><div class="list-group-item"><div class="row-action-primary checkbox"><label><input type="checkbox"></label></div><div class="row-content"><h4 class="list-group-item-heading">' + currentUser.firstName + currentUser.lastName + '</h4><p class="list-group-item-text">Shirt Size: ' + currentUser.tShirt + '</p></div></div></li><li class="list-group-separator"></li>';
+        $('#registrant-list').append(myTemplate);
         console.log(currentUser.firstName);
         
         //junk
