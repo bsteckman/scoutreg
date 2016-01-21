@@ -1,3 +1,5 @@
+
+var dayCamps = []; 
 function DayCamp(camp, program, dates, days,location ,checkInTime ,endTime ,district, stake ) {
     this.camo = camp;
     this.program = program;
@@ -8,7 +10,7 @@ function DayCamp(camp, program, dates, days,location ,checkInTime ,endTime ,dist
     this.endTime = endTime;
     this.district = district
     this.stake = stake
-    
+    dayCamps.push(this)
 }
 
 
@@ -27,38 +29,12 @@ var camp12 = new DayCamp("#12", "Cub & Web", "June 22", "Wed", "LDS Stake Center
 var camp13 = new DayCamp("#13", "Cub & Web", "June 23", "Thurs","Nampa South LDS Stake Center 7829 Deer Flat Rd. Nampa","8:30","3:30","Centennial","Cent-5");
 var camp14 = new DayCamp("#14", "Cub & Web", "June 24", "Fri","Nampa South LDS Stake Center 7829 Deer Flat Rd. Nampa","8:30","3:30","Centennial","Cent-6"););
 var camp15 = new DayCamp("#15", "Cub & Web", "June 25", "Sat","Nampa South LDS Stake Center 7829 Deer Flat Rd. Nampa","8:30","3:30","Centennial","Cent-7"););
-var camp16 = new DayCamp("#16", "Cub & Web", "June 25", "Sat");
-var camp17 = new DayCamp("#17", "Web Only", "June 29-30", "Wed-Thurs");
-var camp18 = new DayCamp("#18", "Cub & Web", "July 6", "Wed");
-var camp19 = new DayCamp("#19", "Cub & Web", "July 7", "Thurs");
-var camp20 = new DayCamp("#20", "Cub & Web", "July 8", "Fri");
-var camp21 = new DayCamp("#21", "Cub & Web", "July 9", "Sat");
-var camp22 = new DayCamp("#22", "Cub & Web", "July 13", "Wed");
-var camp23 = new DayCamp("#23", "Cub & Web", "July 14", "Thrus");
-var camp24 = new DayCamp("#24", "Web Only", "July 15-16", "Fri-Sat");
-
-var DayCamps = [];
-DayCamps.push(camp1);
-DayCamps.push(camp2);
-DayCamps.push(camp3);
-DayCamps.push(camp4);
-DayCamps.push(camp5);
-DayCamps.push(camp6);
-DayCamps.push(camp7);
-DayCamps.push(camp8);
-DayCamps.push(camp9);
-DayCamps.push(camp10);
-DayCamps.push(camp11);
-DayCamps.push(camp12);
-DayCamps.push(camp13);
-DayCamps.push(camp14);
-DayCamps.push(camp15);
-DayCamps.push(camp16);
-DayCamps.push(camp17);
-DayCamps.push(camp18);
-DayCamps.push(camp19);
-DayCamps.push(camp20);
-DayCamps.push(camp21);
-DayCamps.push(camp22);
-DayCamps.push(camp23);
-DayCamps.push(camp24);
+var camp16 = new DayCamp("#16", "Cub & Web", "June 25", "Sat", "Zim's Hot Spings 2995 Zims Road, New Meadows", "8:30", "3:30", "Seven Rivers", "7R-3");
+var camp17 = new DayCamp("#17", "Web Only", "June 29-30", "Wed-Thurs", "Curtis Park, Entrance at 14230 Channel Rd, Caldwell", "1:30", "8:30", "Centennial", "Cent-8&9");
+var camp18 = new DayCamp("#18", "Cub & Web", "July 6", "Wed", "LDS Stake Center Grounds 3700 S. Maple Grove Rd, Boise", "8:30", "3:30", "Oregon Trail", "OT-5");
+var camp19 = new DayCamp("#19", "Cub & Web", "July 7", "Thurs", "LDS Stake Center Grounds 3700 S. Maple Grove Rd, Boise", "8:30", "3:30", "Oregon Trail", "OT-6");
+var camp20 = new DayCamp("#20", "Cub & Web", "July 8", "Fri", "LDS Stake Center Grounds 3700 S. Maple Grove Rd, Boise", "8:30", "3:30", "Gem State", "Gem-3");
+var camp21 = new DayCamp("#21", "Cub & Web", "July 9", "Sat", "LDS Stake Center Grounds 3700 S. Maple Grove Rd, Boise", "8:30", "3:30", "Gem State", "Gem-4");
+var camp22 = new DayCamp("#22", "Cub & Web", "July 13", "Wed", "LDS Stake Center Grounds 3700 S. Maple Grove Rd, Boise", "8:30", "3:30", "Gem State", "Gem-5");
+var camp23 = new DayCamp("#23", "Cub & Web", "July 14", "Thurs", "LDS Stake Center Grounds 3700 S. Maple Grove Rd, Boise", "8:30", "3:30", "Gem State", "Gem-6");
+var camp24 = new DayCamp("#24", "Web Only", "July 15-16", "Fri-Sat", "Curtis Park, 14230 Entrance at Channel Rd, Caldwell", "1:30", "3:30", "Gem State", "Gem-7&8");
