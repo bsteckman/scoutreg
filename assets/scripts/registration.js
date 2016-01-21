@@ -66,7 +66,8 @@ function Registrant(firstName, lastName, position, email, phoneNumber, isAdult) 
     this.email = email;
     this.phoneNumber = phoneNumber;
     this.isAdult = isAdult;
-    this.isContact = false;
+    this.contact = null;
+
     
     // Add these later
     // this.healthForm = healthForm;
@@ -105,15 +106,17 @@ function addRegistrant(e, form) {
     // }
 }
 
-function update() {
-    // write registrantList to table
-    for (var i = 0; i < Registrant.length; i++) {
-        var registrantElem = document.createElement('td');
-        registrantElem.textContent = Registrant[i].name;
-        document.getElementById('table-Display').appendChild(registrantElem);
-    }
-}
 
-function addTableLogic() {
+function update() {
+    //get html elements
+    var myTable = document.getElementById("my-table");
+    //iterate over the list
+    for (var i = 0; i < registrantList.length; i++) {
+        //read object 
+        var currentUser = registrantList[i];
+        //write to page
+        console.log(currentUser.firstName);
+    }
+
 
 }
