@@ -1,3 +1,16 @@
+//Shirt size prices
+var shirtPrice = 10.00;
+var shitPriceXl = 12.00;
+//Shirt sizes for Adults
+var xxlShirts = 0;
+var xlShirts = 0;
+var lgShirts = 0;
+var mdShirts = 0;
+var smShirts = 0;
+//Shirt sizes for youth
+var ylgShirts = 0;
+var ymdShirts = 0;
+
 function DayCamp(camp, program, dates, days) {
     this.camo = camp;
     this.program = program;
@@ -116,6 +129,35 @@ function update() {
         var currentUser = registrantList[i];
         //write to page
         console.log(currentUser.firstName);
+        
+        //junk
+        if (currentUser.shirtSize) {
+            switch(currentUser.shirtSize) {
+                case "Adult-2xl":
+                xxlShirts++;
+                break;
+                case "Adult-xl":
+                xlShirts++;
+                break;
+                case "Adult-lg":
+                lgShirts++;
+                break;
+                case "Adult-md":
+                mdShirts++;
+                break;
+                case "Adult-sm":
+                smShirts++;
+                break;
+                case "youth-lg":
+                ylgShirts++;
+                break;
+                case "youth-md":
+                ymdShirts++;
+                break;        
+            }
+        }
+        // document.write("shirt tally xl") = xlShirts
+        // document.write("shirt price xl") = shirtPriceXL * xlShirts
     }
 
 
