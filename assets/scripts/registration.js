@@ -120,3 +120,7 @@ function update() {
 
 
 }
+
+function displayModal(){
+    document.getElementById("primary-modal-btn").click();
+}
