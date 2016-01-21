@@ -77,8 +77,9 @@
                                         <input type="text" class="form-control registrant" name="phoneNumber" placeholder="Phone Number" data-format="+1 (ddd) ddd-dddd">
                                     </div>
                                     <div>
-                                        <label for="contact-id"></label>
-                                        <input type="text" class="form-control registrant" name="contact-id" value="primary" hidden= "hidden">                                        
+                                        <input type="hidden" class="form-control registrant" name="contact-id" value="primary">
+                                        <input type="hidden" class="form-control registrant" name="isAdult" value="primary">
+                                                                                                                                                               
                                     </div>
                                 </div>
                             </div>
@@ -88,7 +89,7 @@
                         <!--End contact form-->
                     </div>
                     <div class="modal-footer">
-                        <button type="button" id="close-btn" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" id="primary-close-btn" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
@@ -129,8 +130,8 @@
                                         <input type="text" class="form-control registrant" name="phoneNumber" placeholder="Phone Number" data-format="+1 (ddd) ddd-dddd">
                                     </div>
                                     <div>
-                                        <label for="contact-id"></label>
-                                        <input type="text" class="form-control registrant" name="contact-id" value="secondary" hidden= "hidden">                                        
+                                        <input type="hidden" class="form-control registrant" name="contact-id" value="secondary">
+                                        <input type="hidden" class="form-control registrant" name="isAdult" value="secondary">                                        
                                     </div>                                    
                                 </div>
                             </div>
@@ -140,7 +141,7 @@
                         <!--End contact form-->
                     </div>
                     <div class="modal-footer">
-                        <button type="button" id="close-btn" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" id="secondary-close-btn" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
@@ -199,6 +200,9 @@
                                             <option>Adult-2xl</option>
                                         </select>
                                     </div>
+                                    <div>
+                                        <input type="hidden" class="form-control registrant" name="isAdult" value="scout">                                        
+                                    </div>                                    
                                 </div>
                             </div>
                             <button type= "submit" class="btn btn-primary">Save changes</button>
@@ -206,7 +210,7 @@
                         <!--End contact form-->
                     </div>
                     <div class="modal-footer">
-                        <button id="close-btn" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button id="scout-close-btn" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>

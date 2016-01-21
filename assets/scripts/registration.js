@@ -41,18 +41,28 @@ function addRegistrant(e, form) {
     // define values
     var firstName = form['firstName'].value;
     var lastName = form['lastName'].value;
-    var position = form['position'].value;
-    var email = form['email'].value;
-    var phoneNumber = form['phoneNumber'].value;
-    var isAdult = true;
-    var contact = form['contact-id'].value;
+    var isAdult = form['isAdult'].value;    
+    if(isAdult !== 'scout'){
+        var position = form['position'].value;
+        var email = form['email'].value;
+        var phoneNumber = form['phoneNumber'].value;
+        var contact = form['contact-id'].value;
+    } else{
+        var contact = 'scout';     
+    }
     //pass to constructor 
     var registrant1 = new Registrant(firstName, lastName, position, email, phoneNumber, isAdult, contact);
     registrantList.push(registrant1);
     // clear form
     form.reset();
     //form.setAttribute("style","display: none");
-    document.getElementById("close-btn").click();
+    if(contact === "primary"){
+        document.getElementById("primary-close-btn").click();
+        } else if(contact === "secondary"){
+        document.getElementById("secondary-close-btn").click();            
+        } else if (contact === "scout"){
+        document.getElementById("scout-close-btn").click();
+        }
     // if (document.getElementById("my-modal-btn").innerText == "Set Secondary Contact") {
     //     document.getElementById("my-modal-btn").remove();
     //     return;
