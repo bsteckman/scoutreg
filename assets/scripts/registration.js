@@ -66,6 +66,7 @@ function Registrant(firstName, lastName, position, email, phoneNumber, isAdult) 
     this.email = email;
     this.phoneNumber = phoneNumber;
     this.isAdult = isAdult;
+    this.isContact = false;
     
     // Add these later
     // this.healthForm = healthForm;
@@ -96,12 +97,12 @@ function addRegistrant(e, form) {
     form.reset();
     //form.setAttribute("style","display: none");
     document.getElementById("close-btn").click();
-    if (document.getElementById("my-modal-btn").innerText == "Set Secondary Contact") {
-        document.getElementById("my-modal-btn").remove();
-        return;
-    } else {
-        document.getElementById("my-modal-btn").innerText = "Set Secondary Contact";
-    }
+    // if (document.getElementById("my-modal-btn").innerText == "Set Secondary Contact") {
+    //     document.getElementById("my-modal-btn").remove();
+    //     return;
+    // } else {
+    //     document.getElementById("my-modal-btn").innerText = "Set Secondary Contact";
+    // }
 }
 
 function update() {
