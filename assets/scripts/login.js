@@ -31,7 +31,7 @@ var camp22 = new DayCamp("#22", "Cub & Web", "July 13", "Wed", "LDS Stake Center
 var camp23 = new DayCamp("#23", "Cub & Web", "July 14", "Thurs", "LDS Stake Center Grounds 3700 S. Maple Grove Rd, Boise", "8:30", "3:30", "Gem State", "Gem-6");
 var camp24 = new DayCamp("#24", "Web Only", "July 15-16", "Fri-Sat", "Curtis Park, 14230 Entrance at Channel Rd, Caldwell", "1:30", "3:30", "Gem State", "Gem-7&8");
 
-var DayCamps = [];
+var DayCamps = []; 
 DayCamps.push(camp1);
 DayCamps.push(camp2);
 DayCamps.push(camp3);
