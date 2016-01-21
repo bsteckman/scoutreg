@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Ore-Ida Council Summer 2016 Camp Registration Form</title>
-    <link rel"stylesheet" href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/styles/style.css"
 </head>
 <body>
@@ -14,14 +14,14 @@
          <input type="email" id="email" placeholder="email"/>
          <br>
          <input type="text" id="number" placeholder="Troop Number"/> 
-         <form id="myForm">
+         <form id="myForm" onsubmit="submitRegistration()">
               <select id="selectCamp" onclick="dropDown()">
                    <option>Choose a camp</option>
               </select>
+         <button type="submit">Sumbit</button>
          </form>    
          
          
-         <button onclick="submitRegistration()">Sumbit</button>
      </div> 
 <!--     
      <div>
