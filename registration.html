@@ -27,12 +27,22 @@
             <h3 class="col-sm-offset-4 col-sm-6 ">Please READ and fill out form completely.</h3>
         </div>
 
-        <!-- Button trigger modal -->
-        <button id="my-modal-btn" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-            Add Primary Contacts
-        </button>
-
-        <!-- Modal -->
+        <!-- Button group modal -->
+        
+        <div class="btn-group" role="group" aria-label="...">
+            <button id="my-modal-btn" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                Add Primary Contacts
+            </button>
+            <button id="my-modal-btn" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                Add Secondary Contacts
+            </button>
+            <button id="my-modal-btn" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                Add Registrant
+            </button>
+        </div>
+        
+        
+        <!-- Primary Contacts Modal -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -81,14 +91,7 @@
         </div>
         
         
-        
-        
-        
-        
-        
-        
-        <button type="submit">Whatevs </button>
-        </form>
+
         <!--there should be a second section here-->
         <!--<div class="form-group">
                 <label for="secondContactName">First Name:</label>
