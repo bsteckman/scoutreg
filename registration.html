@@ -36,7 +36,7 @@
             <button id="my-modal-btn" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#secondary-contacts-modal">
                 Add Secondary Contacts
             </button>
-            <button id="my-modal-btn" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+            <button id="my-modal-btn" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#registrant-modal">
                 Add Registrant
             </button>
         </div>
@@ -146,7 +146,7 @@
         
         
         
-        <!--<div class="modal fade" id="secondary-contacts-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal fade" id="registrant-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -168,29 +168,48 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-3">
-                                        <label for="position">Position:</label>
-                                        <input type="text" class="form-control registrant" name="position" placeholder="Position">
+                                        <div class="checkbox chkboxadjust">
+                                            <label>
+                                                <input type="checkbox" id="blankCheckbox" value="option1" aria-label="Health Form"> Health Form
+                                            </label>
+                                        </div>
                                     </div>
                                     <div class="col-xs-12 col-sm-5">
-                                        <label for="email">Email:</label>
-                                        <input type="email" class="form-control registrant" name="email" placeholder="Email">
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="blankRadio" id="blankRadio1" value="option1" aria-label="..."> Adult
+                                            </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="blankRadio" id="blankRadio1" value="option1" aria-label="..."> Scout
+                                            </label>
+                                        </div>
                                     </div>
                                     <div class="col-xs-12 col-sm-3">
-                                        <label for="cellPhone">Cell Phone:</label>
-                                        <input type="text" class="form-control registrant" name="phoneNumber" placeholder="Phone Number" data-format="+1 (ddd) ddd-dddd">
+                                        <select class="form-control col-sm-2 col-xs-12" id=adjustPdng>
+                                            <option> Shirt size</option>
+                                            <option>youth-md</option>
+                                            <option>youth-lg</option>
+                                            <option>Adult-sm</option>
+                                            <option>Adult-md</option>
+                                            <option>Adult-lg</option>
+                                            <option>Adult-xl</option>
+                                            <option>Adult-2xl</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
                             <button type= "submit" class="btn btn-primary">Save changes</button>
-                        </form>-->
-    <!--End contact form-->
-                    <!--</div>
+                        </form>
+                        <!--End contact form-->
+                    </div>
                     <div class="modal-footer">
                         <button id="close-btn" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
-        </div>        -->
+        </div>        
         
         
         
@@ -242,25 +261,12 @@
                     <tr>
                         <td class="col-sm-1 col-xs-12">
                             <!--Health From Input-->
-                            <div class="checkbox chkboxadjust">
-                                <label>
-                                    <input type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
-                                </label>
-                            </div>
+
                         </td>
                         <!--isAdult result-->
                         <td class="col-sm-1 col-xs-12">
 
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="blankRadio" id="blankRadio1" value="option1" aria-label="..."> Adult
-                                </label>
-                            </div>
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="blankRadio" id="blankRadio1" value="option1" aria-label="..."> Scout
-                                </label>
-                            </div>
+
 
                         </td>
                         <td>
@@ -280,16 +286,7 @@
                         </td>
                         <td>
                             <!--Shirt Size Input-->
-                            <select class="form-control col-sm-2 col-xs-12" id=adjustPdng>
-                                <option> None</option>
-                                <option>youth-md</option>
-                                <option>youth-lg</option>
-                                <option>Adult-sm</option>
-                                <option>Adult-md</option>
-                                <option>Adult-lg</option>
-                                <option>Adult-xl</option>
-                                <option>Adult-2xl</option>
-                            </select>
+
                         </td>
                     </tr>
                 </div>
