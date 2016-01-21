@@ -14,7 +14,7 @@
 
 </head>
 
-<body>
+<body onload="displayModal()">
     <div class="container-fluid">
 
         <div class="row">
@@ -27,13 +27,23 @@
             <h3 class="col-sm-offset-4 col-sm-6 ">Please READ and fill out form completely.</h3>
         </div>
 
-        <!-- Button trigger modal -->
-        <button id="my-modal-btn" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-            Add Primary Contacts
-        </button>
-
-        <!-- Modal -->
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<!-- Button group modal -->
+        
+        <div class="btn-group-vertical" role="group" aria-label="...">
+            <button id="primary-modal-btn" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#primary-contacts-modal">
+                Add Primary Contacts
+            </button>
+            <button id="secondary-modal-btn" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#secondary-contacts-modal">
+                Add Secondary Contacts
+            </button>
+            <button id="registrant-modal-btn" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#registrant-modal">
+                Add Registrant
+            </button>
+        </div>
+        
+        
+<!-- Primary Contacts Modal -->
+        <div class="modal fade" id="primary-contacts-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -41,34 +51,90 @@
                         <h4 class="modal-title" id="myModalLabel">Primary Contact</h4>
                     </div>
                     <div class="modal-body">
-                        <form id="contact" onsubmit="addRegistrant(event, this)">
+                        <form id="contact" onsubmit="addRegistrant(event, this, contact)">
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-6">
                                         <label for="firstContactName">First Name:</label>
-                                        <input type="text" class="form-control registrant" name="firstName" placeholder="Required">
+                                        <input type="text" class="form-control registrant" name="firstName" placeholder="First Name">
                                     </div>
                                     <div class="col-xs-12 col-sm-6">
                                         <label for="lastContactName">Last Name:</label>
-                                        <input type="text" class="form-control registrant" name="lastName" placeholder="Required">
+                                        <input type="text" class="form-control registrant" name="lastName" placeholder="Last Name">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-3">
                                         <label for="position">Position:</label>
-                                        <input type="text" class="form-control registrant" name="position" placeholder="Required">
+                                        <input type="text" class="form-control registrant" name="position" placeholder="Position">
                                     </div>
                                     <div class="col-xs-12 col-sm-5">
                                         <label for="email">Email:</label>
-                                        <input type="email" class="form-control registrant" name="email" placeholder="Required">
+                                        <input type="email" class="form-control registrant" name="email" placeholder="Email">
                                     </div>
                                     <div class="col-xs-12 col-sm-3">
                                         <label for="cellPhone">Cell Phone:</label>
-                                        <input type="text" class="form-control registrant" name="phoneNumber" placeholder="Required" data-format="+1 (ddd) ddd-dddd">
+                                        <input type="text" class="form-control registrant" name="phoneNumber" placeholder="Phone Number" data-format="+1 (ddd) ddd-dddd">
+                                    </div>
+                                    <div>
+                                        <label for="contact-id"></label>
+                                        <input type="text" class="form-control registrant" name="contact-id" value="primary" hidden= "hidden">                                        
                                     </div>
                                 </div>
                             </div>
-                            <button onclick="addRegistrant()" class="btn btn-primary">Save changes</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+
+                        </form>
+                        <!--End contact form-->
+                    </div>
+                    <div class="modal-footer">
+                        <button id="close-btn" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+   
+<!-- Secondary Contacts Modal -->       
+        <div class="modal fade" id="secondary-contacts-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button id="modal-btn" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Secondary Contact</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form id="contact" onsubmit="addRegistrant(event, this)">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-6">
+                                        <label for="firstContactName">First Name:</label>
+                                        <input type="text" class="form-control registrant" name="firstName" placeholder="First Name">
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6">
+                                        <label for="lastContactName">Last Name:</label>
+                                        <input type="text" class="form-control registrant" name="lastName" placeholder="Last Name">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-3">
+                                        <label for="position">Position:</label>
+                                        <input type="text" class="form-control registrant" name="position" placeholder="Position">
+                                    </div>
+                                    <div class="col-xs-12 col-sm-5">
+                                        <label for="email">Email:</label>
+                                        <input type="email" class="form-control registrant" name="email" placeholder="Email">
+                                    </div>
+                                    <div class="col-xs-12 col-sm-3">
+                                        <label for="cellPhone">Cell Phone:</label>
+                                        <input type="text" class="form-control registrant" name="phoneNumber" placeholder="Phone Number" data-format="+1 (ddd) ddd-dddd">
+                                    </div>
+                                    <div>
+                                        <label for="contact-id"></label>
+                                        <input type="text" class="form-control registrant" name="contact-id" value="secondary" hidden= "hidden">                                        
+                                    </div>                                    
+                                </div>
+                            </div>
+                            <button type= "submit" class="btn btn-primary">Save changes</button>
 
                         </form>
                         <!--End contact form-->
@@ -80,15 +146,76 @@
             </div>
         </div>
         
+<!-- Registrant Modal -->         
+        <div class="modal fade" id="registrant-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button id="modal-btn" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Registrant</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form id="contact" onsubmit="addRegistrant(event, this)">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-6">
+                                        <label for="firstContactName">First Name:</label>
+                                        <input type="text" class="form-control registrant" name="firstName" placeholder="First Name">
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6">
+                                        <label for="lastContactName">Last Name:</label>
+                                        <input type="text" class="form-control registrant" name="lastName" placeholder="Last Name">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-3">
+                                        <div class="checkbox chkboxadjust">
+                                            <label>
+                                                <input type="checkbox" id="blankCheckbox" value="option1" aria-label="Health Form"> Health Form
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-5">
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="blankRadio" id="blankRadio1" value="option1" aria-label="..."> Adult
+                                            </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="blankRadio" id="blankRadio1" value="option1" aria-label="..."> Scout
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-3" id="tShirt">
+                                        <select class="form-control col-sm-2 col-xs-12" id=adjustPdng>
+                                            <option> Shirt size</option>
+                                            <option>youth-md</option>
+                                            <option>youth-lg</option>
+                                            <option>Adult-sm</option>
+                                            <option>Adult-md</option>
+                                            <option>Adult-lg</option>
+                                            <option>Adult-xl</option>
+                                            <option>Adult-2xl</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type= "submit" class="btn btn-primary">Save changes</button>
+                        </form>
+                        <!--End contact form-->
+                    </div>
+                    <div class="modal-footer">
+                        <button id="close-btn" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>        
         
         
         
         
-        
-        
-        
-        <button type="submit">Whatevs </button>
-        </form>
+
         <!--there should be a second section here-->
         <!--<div class="form-group">
                 <label for="secondContactName">First Name:</label>
@@ -114,7 +241,7 @@
 
             <!--Add second contact form and add this all to a modal-->
 
-            <table class="table table-striped">
+            <table class="table table-striped" id="my-table">
                 <!--Table Headers-->
                 <div class="row">
                     <tr>
@@ -135,25 +262,12 @@
                     <tr>
                         <td class="col-sm-1 col-xs-12">
                             <!--Health From Input-->
-                            <div class="checkbox chkboxadjust">
-                                <label>
-                                    <input type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
-                                </label>
-                            </div>
+
                         </td>
                         <!--isAdult result-->
                         <td class="col-sm-1 col-xs-12">
 
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="blankRadio" id="blankRadio1" value="option1" aria-label="..."> Adult
-                                </label>
-                            </div>
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="blankRadio" id="blankRadio1" value="option1" aria-label="..."> Scout
-                                </label>
-                            </div>
+
 
                         </td>
                         <td>
@@ -173,16 +287,7 @@
                         </td>
                         <td>
                             <!--Shirt Size Input-->
-                            <select class="form-control col-sm-2 col-xs-12" id=adjustPdng>
-                                <option> None</option>
-                                <option>youth-md</option>
-                                <option>youth-lg</option>
-                                <option>Adult-sm</option>
-                                <option>Adult-md</option>
-                                <option>Adult-lg</option>
-                                <option>Adult-xl</option>
-                                <option>Adult-2xl</option>
-                            </select>
+
                         </td>
                     </tr>
                 </div>
