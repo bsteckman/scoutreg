@@ -13,7 +13,7 @@ var ymdShirts = 0;
 var registeredCamp = JSON.parse(localStorage.getItem("daycamps"));
 var registrantList = [];
 
-function Registrant(firstName, lastName, position, email, phoneNumber, isAdult, tShirt, contact) {
+function Registrant(firstName, lastName, position, email, phoneNumber, isAdult, tShirt, contact, healthForm) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.position = position;
@@ -22,31 +22,42 @@ function Registrant(firstName, lastName, position, email, phoneNumber, isAdult, 
     this.isAdult = isAdult;
     this.tShirt = tShirt;
     this.contact = contact;
-
-    
+    this.healthForm = healthForm;
     // Add these later
-    // this.healthForm = healthForm;
 }
+
+function Participant(first, last, shirt, healthform, isAdult){
+    this.first = first;
+    this.last = last;
+    this.shirt = shirt;
+    this.healthForm = healthform;
+    this.isAdult = isAdult;
+}
+
 
 function addRegistrant(e, form) {
     // Prevent page reload
     e.preventDefault();
     // define values
+    var contact = form['contact-id'].value;
     var firstName = form['firstName'].value;
     var lastName = form['lastName'].value;
     var isAdult = form['isAdult'].value;
-    if (isAdult !== 'scout') {
+    var tShirt = form['tShirt'].value;
+    
+    //pass to constructor 
+    var registrant;
+    if(contact !== 'scout'){
         var position = form['position'].value;
         var email = form['email'].value;
         var phoneNumber = form['phoneNumber'].value;
-        var contact = form['contact-id'].value;
+        registrant = new Registrant(firstName, lastName, position, email, phoneNumber, isAdult, tShirt, contact, healthForm);
     } else {
-        var contact = 'scout';
-        var tShirt = form['tShirt'].value;
+        var healthForm = form['healthForm'].value;
+        registrant = new Participant(firstName, lastName, tShirt, healthForm, isAdult)
     }
-    //pass to constructor 
-    var registrant1 = new Registrant(firstName, lastName, position, email, phoneNumber, isAdult, tShirt, contact);
-    registrantList.push(registrant1);
+     
+    registrantList.push(registrant);
     // clear form
     form.reset();
     //form.setAttribute("style","display: none");
@@ -69,7 +80,7 @@ function addRegistrant(e, form) {
 
 function update() {
     //get html elements
-    var myTable = document.getElementById("my-table");
+    // var myTable = document.getElementById("my-table");
     //Shirt sizes for Adults
     xxlShirts = 0;
     xlShirts = 0;
@@ -77,19 +88,19 @@ function update() {
     mdShirts = 0;
     smShirts = 0;
     //Shirt sizes for youth
-    var ylgShirts = 0;
-    var ymdShirts = 0;
+    ylgShirts = 0;
+    ymdShirts = 0;
     //iterate over the list
     $('#registrant-list').empty();
     for (var i = 0; i < registrantList.length; i++) {
         //read object 
         var currentUser = registrantList[i];
         //write to page
-        var myTemplate = '<li class="list-group-item"><div class="list-group-item"><div class="row-action-primary checkbox"><label><input type="checkbox"></label></div><div class="row-content"><h4 class="list-group-item-heading">' + currentUser.firstName + ' ' + currentUser.lastName + '</h4><p class="list-group-item-text">Shirt Size: ' + currentUser.tShirt + '</p></div></div></li><li class="list-group-separator"></li>';
+        if (currentUser.isAdult) { var adult = "adult"; } else { adult = "" }
+        var myTemplate = '<li class="list-group-item' + adult + '"><div class="list-group-item"><div class="row-action-primary checkbox"><label><input type="checkbox" value="'+ currentUser.healthForm +'"></label></div><div class="row-content"><h4 class="list-group-item-heading">' + currentUser.firstName + ' ' + currentUser.lastName + '</h4><p class="list-group-item-text">Shirt Size: ' + currentUser.tShirt + '</p></div></div></li><li class="list-group-separator"></li>';
         $('#registrant-list').append(myTemplate);
         console.log(currentUser.firstName);
         
-        //junk
         if (currentUser.tShirt) {
             switch (currentUser.tShirt) {
                 case "Adult-xxl":
