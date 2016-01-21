@@ -27,44 +27,54 @@
             <h3 class="col-sm-offset-4 col-sm-6 ">Please READ and fill out form completely.</h3>
         </div>
 
-        <!-- Button trigger modal -->
-        <button id="my-modal-btn" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-            Add Primary Contacts
-        </button>
-
-        <!-- Modal -->
+        <!-- Button group modal -->
+        
+        <div class="btn-group" role="group" aria-label="...">
+            <button id="my-modal-btn" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                Add Primary Contacts
+            </button>
+            <button id="my-modal-btn" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                Add Secondary Contacts
+            </button>
+            <button id="my-modal-btn" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                Add Registrant
+            </button>
+        </div>
+        
+        
+        <!-- Primary Contacts Modal -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button id="modal-btn" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                        <h4 class="modal-title" id="myModalLabel">Primary Contact</h4>
                     </div>
                     <div class="modal-body">
                         <form id="contact" onsubmit="addRegistrant(event, this)">
                             <div class="form-group">
                                 <div class="row">
-                                    <div class="col-xs-12 col-sm-offset-1 col-sm-4">
+                                    <div class="col-xs-12 col-sm-6">
                                         <label for="firstContactName">First Name:</label>
                                         <input type="text" class="form-control registrant" name="firstName" placeholder="Required">
                                     </div>
-                                    <div class="col-xs-12 col-sm-offset-2 col-sm-4">
+                                    <div class="col-xs-12 col-sm-6">
                                         <label for="lastContactName">Last Name:</label>
                                         <input type="text" class="form-control registrant" name="lastName" placeholder="Required">
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-xs-12 col-sm-offset-1 col-sm-2">
+                                    <div class="col-xs-12 col-sm-3">
                                         <label for="position">Position:</label>
                                         <input type="text" class="form-control registrant" name="position" placeholder="Required">
                                     </div>
-                                    <div class="col-xs-12 col-sm-offset-1 col-sm-4">
+                                    <div class="col-xs-12 col-sm-5">
                                         <label for="email">Email:</label>
                                         <input type="email" class="form-control registrant" name="email" placeholder="Required">
                                     </div>
-                                    <div class="col-xs-12 col-sm-offset-1 col-sm-2">
-                                        <label for="cellPhone">Cell Phone</label>
-                                        <input type="number" class="form-control registrant" name="phoneNumber" placeholder="Required">
+                                    <div class="col-xs-12 col-sm-3">
+                                        <label for="cellPhone">Cell Phone:</label>
+                                        <input type="text" class="form-control registrant" name="phoneNumber" placeholder="Required" data-format="+1 (ddd) ddd-dddd">
                                     </div>
                                 </div>
                             </div>
@@ -79,8 +89,9 @@
                 </div>
             </div>
         </div>
-        <button type="submit">Whatevs </button>
-        </form>
+        
+        
+
         <!--there should be a second section here-->
         <!--<div class="form-group">
                 <label for="secondContactName">First Name:</label>
