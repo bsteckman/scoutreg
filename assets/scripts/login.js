@@ -53,3 +53,7 @@ function dropDown() {
 }
 
 dropDown();
+
+function submitRegistration(){
+    localStorage.SetItem("dayCamps",JSON.stringify(email, troopNumber));
+}
