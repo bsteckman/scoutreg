@@ -122,9 +122,12 @@ function update() {
         // document.write("shirt tally xl") = xlShirts
         // document.write("shirt price xl") = shirtPriceXL * xlShirts
     }
-
 }
 
 function displayModal(){
     document.getElementById("primary-modal-btn").click();
 }
+
+// function thankYouPage(){
+//     var myRequest = new Request("")
+// }
