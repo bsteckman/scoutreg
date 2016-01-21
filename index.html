@@ -1,38 +1,131 @@
 <html>
+
 <head>
     <meta charset="UTF-8">
     <title>Ore-Ida Council Summer 2016 Camp Registration Form</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/styles/style.css"
+    <!-- Material Design fonts -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+    <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Material Design -->
+    <link href="assets/plugins/bootstrap-material/dist/css/bootstrap-material-design.css" rel="stylesheet">
+    <link href="assets/plugins/bootstrap-material/dist/css/ripples.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles/style.css" />
 </head>
-<body>
+
+<body class="container">
+
+
+    <div class="panel panel-default">
+        <h1>Welcome to Day Camp!</h1>
+        <div class="text-center">
+            <img class="img-rounded" height="120px" src="/assets/img/ore-ida-summer-camp-logo.jpg" alt="Ore-Ida Council Boyscout Logo">
+        </div>
+        <div class="panel-body">
+            <form id="myForm" onsubmit="submitRegistration()">
+                <fieldset>
+                    <div class="form-group">
+                        <label for="email"></label>
+                        <input class="form-control" type="email" name="email" id="email" placeholder="email" />
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="troop"></label>
+                        <input class="form-control" type="text" id="number" placeholder="Troop Number" name="troop" />
+                    </div>
+                    <div class="form-group">
+                        <label for="camp"></label>
+                        <select id="selectCamp" name="camp">
+                            <option>--- Choose a camp ---</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-block btn-raised btn-scout-blue" type="submit">Sumbit</button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
     
-    <img class="img-circle" height="120px" src="/assets/img/ore-ida-summer-camp-logo.jpg" alt="Ore-Ida Council Boyscout Logo"/>
-    <h1>Welcome to Scout Camp!<h1>
+
+    <!--START REG FORM STYLES-->
+    <div class="bs-component">
+        <div class="panel panel-default main-list">
+
+            <div class="clearfix">
+                <div class="col-sm-1 text-center">
+                    <!--<h4>Health Form</h4>-->
+                </div>
+            </div>
+
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <div class="list-group-item">
+                        <div class="row-action-primary checkbox">
+                            <label>
+                                <!--<input type="checkbox">-->
+                            </label>
+                        </div>
+                        <div class="row-content">
+                            <h4 class="list-group-item-heading">John Smith</h4>
+                            <p class="list-group-item-text">Shirt Size: AL</p>
+                            <!--<div class="checkbox">-->
+                            <label>
+                                <input type="checkbox"><span class="checkbox-material"><span class="check"></span></span> Checkbox
+                            </label>
+
+                        </div>
+                    </div>
         
-     <div>
-         <input type="email" id="email" placeholder="email"/>
-         <br>
-         <input type="text" id="number" placeholder="Troop Number"/> 
-         <form id="myForm" onsubmit="submitRegistration()">
-              <select id="selectCamp" onclick="dropDown()">
-                   <option>Choose a camp</option>
-              </select>
-         <button type="submit">Sumbit</button>
-         </form>    
-         
-         
-     </div> 
-<!--     
-     <div>
-         <h3>Active members @ Chim Gym</h3>
-         <ul id="members-list">
-             <li> You have no members on this secured list</li>
-         </ul>
-     </div> 
-          -->
-    <script src="/assets/scripts/login.js"></script>
+        </li>
+        <div class="list-group-separator"></div>
+        <li class="list-group-item">
+            <!--NewButton-->
+            <li class="list-group-item">
+                <div class="list-group-item">
+                    <div class="row-action-primary checkbox">
+                        <label>
+                            <!--<input type="checkbox">-->
+                        </label>
+                    </div>
+                    <div class="row-content">
+                        <h4 class="list-group-item-heading">John Smith</h4>
+                        <p class="list-group-item-text">Shirt Size: AL</p>
+                        <!--<div class="checkbox">-->
+                        <label>
+                            <input type="checkbox"><span class="checkbox-material"><span class="check"></span></span> Checkbox
+                        </label>
+
+                    </div>
+                </div>
+    </div>
+    </li>
+    <div class="list-group-separator"></div>
+    <li class="list-group-item">
+
+
+
+
+        <!--end new button-->
+     
+        </div>
+    </li>
+    </ul>
+
+    </div>
+    </div>
+
+    <script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script src="assets/plugins/bootstrap-material/dist/js/ripples.min.js"></script>
+    <script src="assets/plugins/bootstrap-material/dist/js/material.min.js"></script>
+    <script src="assets/scripts/login.js"></script>
+
+
+
+    <!--START MATERIAL THEME-->
+    <script>
+        $.material.init()
+    </script>
+
 </body>
+
 </html>
-
-
