@@ -27,8 +27,8 @@
             <h3 class="col-sm-offset-4 col-sm-6 ">Please READ and fill out form completely.</h3>
         </div>
 
-<!-- Button group modal -->
-        
+        <!-- Button group modal -->
+
         <div class="btn-group-vertical" role="group" aria-label="...">
             <button id="primary-modal-btn" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#primary-contacts-modal">
                 Add Primary Contacts
@@ -40,9 +40,9 @@
                 Add Registrant
             </button>
         </div>
-        
-        
-<!-- Primary Contacts Modal -->
+
+        <!-- Primary Contacts Modal -->
+
         <div class="modal fade" id="primary-contacts-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -77,8 +77,9 @@
                                         <input type="text" class="form-control registrant" name="phoneNumber" placeholder="Phone Number" data-format="+1 (ddd) ddd-dddd">
                                     </div>
                                     <div>
-                                        <label for="contact-id"></label>
-                                        <input type="text" class="form-control registrant" name="contact-id" value="primary" hidden= "hidden">                                        
+                                        <input type="hidden" class="form-control registrant" name="contact-id" value="primary">
+                                        <input type="hidden" class="form-control registrant" name="isAdult" value="primary">
+
                                     </div>
                                 </div>
                             </div>
@@ -88,13 +89,14 @@
                         <!--End contact form-->
                     </div>
                     <div class="modal-footer">
-                        <button type="button" id="close-btn" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" id="primary-close-btn" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
         </div>
-   
-<!-- Secondary Contacts Modal -->       
+
+        <!-- Secondary Contacts Modal -->
+
         <div class="modal fade" id="secondary-contacts-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -129,24 +131,25 @@
                                         <input type="text" class="form-control registrant" name="phoneNumber" placeholder="Phone Number" data-format="+1 (ddd) ddd-dddd">
                                     </div>
                                     <div>
-                                        <label for="contact-id"></label>
-                                        <input type="text" class="form-control registrant" name="contact-id" value="secondary" hidden= "hidden">                                        
-                                    </div>                                    
+                                        <input type="hidden" class="form-control registrant" name="contact-id" value="secondary">
+                                        <input type="hidden" class="form-control registrant" name="isAdult" value="secondary">
+                                    </div>
                                 </div>
                             </div>
-                            <button type= "submit" class="btn btn-primary">Save changes</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
 
                         </form>
                         <!--End contact form-->
                     </div>
                     <div class="modal-footer">
-                        <button type="button" id="close-btn" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" id="secondary-close-btn" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
         </div>
-        
-<!-- Registrant Modal -->         
+
+        <!-- Registrant Modal -->
+
         <div class="modal fade" id="registrant-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -188,7 +191,7 @@
                                         </div>
                                     </div>
                                     <div class="col-xs-12 col-sm-3" id="tShirt">
-                                        <select class="form-control col-sm-2 col-xs-12" id=adjustPdng>
+                                        <select name="tShirt" class="form-control col-sm-2 col-xs-12" id="adjustPdng">
                                             <option> Shirt size</option>
                                             <option>youth-md</option>
                                             <option>youth-lg</option>
@@ -199,113 +202,30 @@
                                             <option>Adult-2xl</option>
                                         </select>
                                     </div>
+                                    <div>
+                                        <input type="hidden" class="form-control registrant" name="isAdult" value="scout">
+                                    </div>
                                 </div>
                             </div>
-                            <button type= "submit" class="btn btn-primary">Save changes</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
                         </form>
                         <!--End contact form-->
                     </div>
                     <div class="modal-footer">
-                        <button id="close-btn" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button id="scout-close-btn" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
         </div>        
-        
-        
-        
-        
-
-        <!--there should be a second section here-->
-        <!--<div class="form-group">
-                <label for="secondContactName">First Name:</label>
-                <input type="text" class="form-control" id="firstContactName" placeholder="Required">
-                <label for="secondContactName">Last Name:</label>
-                <input type="text" class="form-control" id="lastContactName" placeholder="Required">
-                <label for="position">Position:</label>
-                <input type="text" class="form-control" id="position" placeholder="Required">
-                <label for="position">Email:</label>
-                <input type="email" class="form-control" id="email" placeholder="Required">
-                <label for="position">Cell Phone</label>
-                <input type="number" class="form-control" id="cellPhone" placeholder="Required">
-            </div>-->
-
-
-        <table class="table table-striped" id="table-Display">
-            <!--Table Headers-->
-            <div class="row">
-            </div>
-
-
-            <!--Start Contact Form-->
-
-            <!--Add second contact form and add this all to a modal-->
-
-            <table class="table table-striped" id="my-table">
-                <!--Table Headers-->
-                <div class="row">
-                    <tr>
-                        <th class="col-sm-1 col-xs-12">Health Form</th>
-                        <th class="col-sm-1 col-xs-12">scout/adult</th>
-                        <th class="col-sm-8 col-xs-12">Name</th>
-                        <th class="col-sm-2 col-xs-12">Shirt Size</th>
-                    </tr>
-                </div>
-                <tr>
-                    <td>no</td>
-                    <td>adult</td>
-                    <td>Test Name</td>
-                    <td>xl</td>
-                </tr>
-                <!--Input-->
-                <div class="row">
-                    <tr>
-                        <td class="col-sm-1 col-xs-12">
-                            <!--Health From Input-->
-
-                        </td>
-                        <!--isAdult result-->
-                        <td class="col-sm-1 col-xs-12">
-
-
-
-                        </td>
-                        <td>
-                            <!--Name Input-->
-                            <div class="col-sm-6 col-xs-12">
-                                <label for="secondContactName"></label>
-                                <input type="text" class="form-control" id="firstContactName" placeholder="First Name">
-
-
-                            </div>
-                            <div class="col-sm-6 col-xs-12">
-                                <label for="secondContactName"></label>
-                                <input type="text" class="form-control" id="lastContactName" placeholder="Last Name">
-
-
-                            </div>
-                        </td>
-                        <td>
-                            <!--Shirt Size Input-->
-
-                        </td>
-                    </tr>
-                </div>
-                <!--End Input-->
-            </table>
-
+ 
             <!--</form>-->
 
-            <div class="row">
-                <div class="col-xs-12 col-sm-4 col-sm-offset-5 margn-bottom">
-                    <button onclick="addRegistrant()">Add Registrant</button>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12  col-sm-4 col-sm-offset-5">
-                    <button>Submit Final Form</button>
-                </div>
-            </div>
+    <div class="row">
+        <div class="col-xs-12  col-sm-4 col-sm-offset-5">
+            <button>Submit Final Form</button>
+        </div>
+    </div>
+
 </body>
 
 <!-- Latest compiled and minified JavaScript -->
