@@ -14,7 +14,7 @@
 
 </head>
 
-<body>
+<body onload="displayModal()">
     <div class="container-fluid">
 
         <div class="row">
@@ -27,22 +27,22 @@
             <h3 class="col-sm-offset-4 col-sm-6 ">Please READ and fill out form completely.</h3>
         </div>
 
-        <!-- Button group modal -->
+<!-- Button group modal -->
         
         <div class="btn-group-vertical" role="group" aria-label="...">
-            <button id="my-modal-btn" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#primary-contacts-modal" onclick="populateForm()">
+            <button id="primary-modal-btn" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#primary-contacts-modal" onclick="populateForm()">
                 Add Primary Contacts
             </button>
-            <button id="my-modal-btn" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#secondary-contacts-modal">
+            <button id="secondary-modal-btn" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#secondary-contacts-modal">
                 Add Secondary Contacts
             </button>
-            <button id="my-modal-btn" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#registrant-modal">
+            <button id="registrant-modal-btn" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#registrant-modal">
                 Add Registrant
             </button>
         </div>
         
         
-        <!-- Primary Contacts Modal -->
+<!-- Primary Contacts Modal -->
         <div class="modal fade" id="primary-contacts-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -89,12 +89,8 @@
                 </div>
             </div>
         </div>
-        
-        
-        
-        
-        
-         <!-- Secondary Contacts Modal -->       
+   
+<!-- Secondary Contacts Modal -->       
         <div class="modal fade" id="secondary-contacts-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -142,10 +138,7 @@
             </div>
         </div>
         
-         <!-- Registrant Modal -->         
-        
-        
-        
+<!-- Registrant Modal -->         
         <div class="modal fade" id="registrant-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
