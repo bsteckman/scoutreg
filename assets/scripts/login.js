@@ -1,4 +1,4 @@
-
+//DayCamp constructor builds camp objects and pushes them to the dayCamps array
 var dayCamps = []; 
 function DayCamp(camp, program, dates, days,location ,checkInTime ,endTime ,district, stake ) {
     this.camo = camp;
