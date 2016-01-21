@@ -1,8 +1,16 @@
 //Shirt size prices
 var shirtPrice = 10.00;
 var shirtPriceXXL = 12.00;
-
-
+//Shirt sizes for Adults
+var xxlShirts = 0;
+var xlShirts = 0;
+var lgShirts = 0;
+var mdShirts = 0;
+var smShirts = 0;
+//Shirt sizes for youth
+var ylgShirts = 0;
+var ymdShirts = 0;
+var registeredCamp = JSON.parse(localStorage.getItem("daycamps"));
 var registrantList = [];
 
 function Registrant(firstName, lastName, position, email, phoneNumber, isAdult, tShirt, contact) {
@@ -26,15 +34,15 @@ function addRegistrant(e, form) {
     // define values
     var firstName = form['firstName'].value;
     var lastName = form['lastName'].value;
-    var isAdult = form['isAdult'].value;    
-    if(isAdult !== 'scout'){
+    var isAdult = form['isAdult'].value;
+    if (isAdult !== 'scout') {
         var position = form['position'].value;
         var email = form['email'].value;
         var phoneNumber = form['phoneNumber'].value;
         var contact = form['contact-id'].value;
-    } else{
-        var contact = 'scout';   
-        var tShirt = form['tShirt'].value;  
+    } else {
+        var contact = 'scout';
+        var tShirt = form['tShirt'].value;
     }
     //pass to constructor 
     var registrant1 = new Registrant(firstName, lastName, position, email, phoneNumber, isAdult, tShirt, contact);
@@ -42,19 +50,20 @@ function addRegistrant(e, form) {
     // clear form
     form.reset();
     //form.setAttribute("style","display: none");
-    if(contact === "primary"){
+    if (contact === "primary") {
         document.getElementById("primary-close-btn").click();
-        } else if(contact === "secondary"){
-        document.getElementById("secondary-close-btn").click();            
-        } else if (contact === "scout"){
+    } else if (contact === "secondary") {
+        document.getElementById("secondary-close-btn").click();
+    } else if (contact === "scout") {
         document.getElementById("scout-close-btn").click();
-        }
+    }
     // if (document.getElementById("my-modal-btn").innerText == "Set Secondary Contact") {
     //     document.getElementById("my-modal-btn").remove();
     //     return;
     // } else {
     //     document.getElementById("my-modal-btn").innerText = "Set Secondary Contact";
     // }
+    update();
 }
 
 
@@ -62,11 +71,11 @@ function update() {
     //get html elements
     var myTable = document.getElementById("my-table");
     //Shirt sizes for Adults
-    var xxlShirts = 0;
-    var xlShirts = 0;
-    var lgShirts = 0;
-    var mdShirts = 0;
-    var smShirts = 0;
+    xxlShirts = 0;
+    xlShirts = 0;
+    lgShirts = 0;
+    mdShirts = 0;
+    smShirts = 0;
     //Shirt sizes for youth
     var ylgShirts = 0;
     var ymdShirts = 0;
@@ -124,7 +133,7 @@ function update() {
     }
 }
 
-function displayModal(){
+function displayModal() {
     document.getElementById("primary-modal-btn").click();
 }
 

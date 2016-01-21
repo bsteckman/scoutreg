@@ -27,8 +27,8 @@
             <h3 class="col-sm-offset-4 col-sm-6 ">Please READ and fill out form completely.</h3>
         </div>
 
-<!-- Button group modal -->
-        
+        <!-- Button group modal -->
+
         <div class="btn-group-vertical" role="group" aria-label="...">
             <button id="primary-modal-btn" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#primary-contacts-modal">
                 Add Primary Contacts
@@ -79,7 +79,7 @@
                                     <div>
                                         <input type="hidden" class="form-control registrant" name="contact-id" value="primary">
                                         <input type="hidden" class="form-control registrant" name="isAdult" value="primary">
-                                                                                                                                                               
+
                                     </div>
                                 </div>
                             </div>
@@ -96,7 +96,7 @@
         </div>
 
         <!-- Secondary Contacts Modal -->
-        
+
         <div class="modal fade" id="secondary-contacts-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -132,8 +132,8 @@
                                     </div>
                                     <div>
                                         <input type="hidden" class="form-control registrant" name="contact-id" value="secondary">
-                                        <input type="hidden" class="form-control registrant" name="isAdult" value="secondary">                                        
-                                    </div>                                    
+                                        <input type="hidden" class="form-control registrant" name="isAdult" value="secondary">
+                                    </div>
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary">Save changes</button>
@@ -191,7 +191,7 @@
                                         </div>
                                     </div>
                                     <div class="col-xs-12 col-sm-3" id="tShirt">
-                                        <select class="form-control col-sm-2 col-xs-12" id=adjustPdng>
+                                        <select name="tShirt" class="form-control col-sm-2 col-xs-12" id="adjustPdng">
                                             <option> Shirt size</option>
                                             <option>youth-md</option>
                                             <option>youth-lg</option>
@@ -199,12 +199,12 @@
                                             <option>Adult-md</option>
                                             <option>Adult-lg</option>
                                             <option>Adult-xl</option>
-                                            <option>Adult-2xl</option>
+                                            <option>Adult-xxl</option>
                                         </select>
                                     </div>
                                     <div>
-                                        <input type="hidden" class="form-control registrant" name="isAdult" value="scout">                                        
-                                    </div>                                    
+                                        <input type="hidden" class="form-control registrant" name="isAdult" value="scout">
+                                    </div>
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary">Save changes</button>
@@ -216,15 +216,44 @@
                     </div>
                 </div>
             </div>
-        </div>        
- 
-            <!--</form>-->
+        </div>
+
+        <!--</form>-->
+
 
     <!--<div class="row">
         <div class="col-xs-12  col-sm-4 col-sm-offset-5">
             <button onclick="thankYouPage()">Submit Final Form</button>
         </div>
     </div>-->
+
+        <div class="row">
+            <div class="col-xs-12  col-sm-4 col-sm-offset-5">
+                <button>Submit Final Form</button>
+            </div>
+        </div>
+
+        <div>
+            <div id="xxl-shirt-sizes"></div>
+            <div id="xxl-shirt-prices"></div>
+            <div id="xl-shirt-sizes"></div>
+            <div id="xl-shirt-prices"></div>
+            <div id="md-shirt-sizes"></div>
+            <div id="md-shirt-prices"></div>
+            <div id="sm-shirt-sizes"></div>
+            <div id="sm-shirt-prices"></div>
+            <div id="ylg-shirt-sizes"></div>
+            <div id="ylg-shirt-prices"></div>
+            <div id="ymd-shirt-sizes"></div>
+            <div id="ymd-shirt-prices"></div>
+            <div id="total-shirt-prices"></div>
+        </div>
+        <div class="checkbox chkboxadjust">
+            <label>
+                <input type="checkbox" id="blankCheckbox" value="myoption" aria-label="gold-card-member"> Gold Card Member
+            </label>
+        </div>
+
 
 </body>
 
