@@ -1,6 +1,7 @@
-//Shirt size prices
+// Shirt size prices
 var shirtPrice = 10.00;
 var shirtPriceXXL = 12.00;
+
 //Shirt sizes for Adults
 var xxlShirts = 0;
 var xlShirts = 0;
@@ -96,7 +97,9 @@ function update() {
         var myTemplate = '<li class="list-group-item' + adult + '"><div class="list-group-item"><div class="row-action-primary checkbox"><label><input type="checkbox" value="'+ currentUser.healthForm +'"></label></div><div class="row-content"><h4 class="list-group-item-heading">' + currentUser.firstName + ' ' + currentUser.lastName + '</h4><p class="list-group-item-text">Shirt Size: ' + currentUser.tShirt + '</p></div></div></li><li class="list-group-separator"></li>';
         $('#registrant-list').append(myTemplate);
         console.log(currentUser.firstName);
-        
+
+
+
         if (currentUser.tShirt) {
             switch (currentUser.tShirt) {
                 case "Adult-xxl":
@@ -137,7 +140,8 @@ function update() {
         document.getElementById("ylg-shirt-prices").innerHTML = String("Total YLG Shirt Price: " + ylgShirts * shirtPrice);
         document.getElementById("ymd-shirt-sizes").innerHTML = String("Total YMD Shirts: " + ymdShirts);
         document.getElementById("ymd-shirt-prices").innerHTML = String("Total YMD Shirt Price: " + ymdShirts * shirtPrice);
-        document.getElementById("total-shirt-prices").innerHTML = String("Total price is " + (xxlShirts * shirtPriceXXL + xlShirts * shirtPrice + mdShirts * shirtPrice + smShirts * shirtPrice + ylgShirts * shirtPrice + ymdShirts * shirtPrice));
+        // document.getElementById("total-shirt-prices").innerHTML = String("Total price is " + (xlShirts + lgShirts + mdShirts + smShirts + ylgShirts + ymdShirts));
+        document.getElementById("total-shirt-prices").innerHTML = String("Total price is " + asd());
         // document.write("shirt tally xl") = xlShirts
         // document.write("shirt price xl") = shirtPriceXL * xlShirts
     }
