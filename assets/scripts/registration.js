@@ -2,7 +2,7 @@
 var registeredCamp = JSON.parse(localStorage.getItem("daycamps"));
 var registrantList = [];
 
-function Registrant(firstName, lastName, position, email, phoneNumber, isAdult, tShirt, contact, healthForm) {
+function Participant(firstName, lastName, tShirt, healthForm, isAdult, position, email, phoneNumber) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.position = position;
@@ -10,31 +10,32 @@ function Registrant(firstName, lastName, position, email, phoneNumber, isAdult, 
     this.phoneNumber = phoneNumber;
     this.isAdult = isAdult;
     this.tShirt = tShirt;
-    this.contact = contact;
     this.healthForm = healthForm;
     // Add these later
 }
 
-function Participant(first, last, shirt, healthform, isAdult) {
-    this.first = first;
-    this.last = last;
-    this.shirt = shirt;
-    this.healthForm = healthform;
-    this.isAdult = isAdult;
-}
+// function Participant(first, last, shirt, healthform, isAdult){
+//     this.first = first;
+//     this.last = last;
+//     this.shirt = shirt;
+//     this.healthForm = healthform;
+//     this.isAdult = isAdult;
+// }
+
 
 
 function addRegistrant(e, form) {
+      
     // Prevent page reload
     e.preventDefault();
     // define values
-    var contact = form['contact-id'].value;
     var firstName = form['firstName'].value;
     var lastName = form['lastName'].value;
     var isAdult = form['isAdult'].value;
     var tShirt = form['tShirt'].value;
     
     //pass to constructor 
+
     var registrant;
     if (contact !== 'scout') {
         var position = form['position'].value;
@@ -46,17 +47,19 @@ function addRegistrant(e, form) {
         registrant = new Participant(firstName, lastName, tShirt, healthForm, isAdult)
     }
 
+
     registrantList.push(registrant);
     // clear form
     form.reset();
+    
     //form.setAttribute("style","display: none");
-    if (contact === "primary") {
-        document.getElementById("primary-close-btn").click();
-    } else if (contact === "secondary") {
-        document.getElementById("secondary-close-btn").click();
-    } else if (contact === "scout") {
-        document.getElementById("scout-close-btn").click();
-    }
+    // if (contact === "primary") {
+        // document.getElementById("primary-close-btn").click();
+    // } else if (contact === "secondary") {
+        // document.getElementById("secondary-close-btn").click();
+    // } else if (contact === "scout") {
+        // document.getElementById("scout-close-btn").click();
+    // }
     // if (document.getElementById("my-modal-btn").innerText == "Set Secondary Contact") {
     //     document.getElementById("my-modal-btn").remove();
     //     return;
