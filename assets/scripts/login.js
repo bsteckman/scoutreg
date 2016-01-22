@@ -54,6 +54,9 @@ function loginDropDown() {
 
 loginDropDown();
 
-function loginSubmitRegistration(email, troopNumber){
-    localStorage.SetItem("dayCamps",JSON.stringify(email, troopNumber));
+function loginSubmitRegistration(e, form){
+    e.preventDefault();
+    var email = form['email'];
+    var troop = form['troop'];
+    localStorage.SetItem("dayCamps",JSON.stringify(email, troop));
 }
