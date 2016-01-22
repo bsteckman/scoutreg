@@ -15,12 +15,12 @@
 </head>
 
 <body onload="displayModal()">
-    <form action="thankYouPage.html" method= "POST">
+    
         <div class="container-fluid">
 
         <div class="row">
             <div class="col-sm-offset-1">
-                <h4>Two Adult Walking Leaders for up to 10 scouts. Add One Leader for every 5 additional scouts.</h4>
+                <h4>To ensure scout safety and maximize quality of experience, our policy is to provide one 'Walking Leader' to every five campers.</h4>
                 <h4>*ALL BSA registered adults MUST be Youth Protection Trained*</h4>
             </div>
         </div>
@@ -59,34 +59,46 @@
                     </div>
                     <div class="modal-body">
                         <form id="contact" onsubmit="addRegistrant(event, this, contact)">
-                            <div class="form-group">
+                            <div class="">
                                 <div class="row">
-                                    <div class="col-xs-12 col-sm-6">
+                                    <div class="col-xs-12 col-sm-6 form-group">
                                         <label for="firstContactName">First Name:</label>
                                         <input type="text" class="form-control registrant" name="firstName" placeholder="First Name">
                                     </div>
-                                    <div class="col-xs-12 col-sm-6">
+                                    <div class="col-xs-12 col-sm-6 form-group">
                                         <label for="lastContactName">Last Name:</label>
                                         <input type="text" class="form-control registrant" name="lastName" placeholder="Last Name">
                                     </div>
                                 </div>
+                                <div class="col-xs-12 col-sm-3 form-group" id="tShirt">
+                                        <label for="tShirt">Shirt Size:</label>
+                                        <select name="tShirt" class="form-control col-sm-2 col-xs-12" id="adjustPdng">
+                                            <option>--- Shirt Size ---</option>
+                                            <option>youth-md</option>
+                                            <option>youth-lg</option>
+                                            <option>Adult-sm</option>
+                                            <option>Adult-md</option>
+                                            <option>Adult-lg</option>
+                                            <option>Adult-xl</option>
+                                            <option>Adult-xxl</option>
+                                        </select>
+                                    </div>
                                 <div class="row">
-                                    <div class="col-xs-12 col-sm-3">
+                                    <div class="col-xs-12 col-sm-3 form-group">
                                         <label for="position">Position:</label>
                                         <input type="text" class="form-control registrant" name="position" placeholder="Position">
                                     </div>
-                                    <div class="col-xs-12 col-sm-5">
+                                    <div class="col-xs-12 col-sm-5 form-group">
                                         <label for="email">Email:</label>
                                         <input type="email" class="form-control registrant" name="email" placeholder="Email">
                                     </div>
-                                    <div class="col-xs-12 col-sm-3">
+                                    <div class="col-xs-12 col-sm-3 form-group">
                                         <label for="cellPhone">Cell Phone:</label>
                                         <input type="text" class="form-control registrant" name="phoneNumber" placeholder="Phone Number" data-format="+1 (ddd) ddd-dddd">
                                     </div>
                                     <div>
                                         <input type="hidden" class="form-control registrant" name="contact-id" value="primary">
                                         <input type="hidden" class="form-control registrant" name="isAdult" value="primary">
-
                                     </div>
                                 </div>
                             </div>
@@ -112,28 +124,40 @@
                         <h4 class="modal-title" id="myModalLabel">Secondary Contact</h4>
                     </div>
                     <div class="modal-body">
-                        <form id="contact" onsubmit="addRegistrant(event, this)">
-                            <div class="form-group">
+                        <form id="contact" onsubmit="addRegistrant(e, this)" >
+                            <div class="">
                                 <div class="row">
-                                    <div class="col-xs-12 col-sm-6">
+                                    <div class="col-xs-12 col-sm-6 form-group">
                                         <label for="firstContactName">First Name:</label>
                                         <input type="text" class="form-control registrant" name="firstName" placeholder="First Name">
                                     </div>
-                                    <div class="col-xs-12 col-sm-6">
+                                    <div class="col-xs-12 col-sm-6 form-group">
                                         <label for="lastContactName">Last Name:</label>
                                         <input type="text" class="form-control registrant" name="lastName" placeholder="Last Name">
                                     </div>
+                                    <div class="col-xs-12 col-sm-3 form-group" id="tShirt">
+                                        <select name="tShirt" class="form-control col-sm-2 col-xs-12" id="adjustPdng">
+                                            <option>--- Shirt Size ---</option>
+                                            <option>youth-md</option>
+                                            <option>youth-lg</option>
+                                            <option>Adult-sm</option>
+                                            <option>Adult-md</option>
+                                            <option>Adult-lg</option>
+                                            <option>Adult-xl</option>
+                                            <option>Adult-xxl</option>
+                                        </select>
+                                    </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-xs-12 col-sm-3">
+                                    <div class="col-xs-12 col-sm-3 form-group">
                                         <label for="position">Position:</label>
                                         <input type="text" class="form-control registrant" name="position" placeholder="Position">
                                     </div>
-                                    <div class="col-xs-12 col-sm-5">
+                                    <div class="col-xs-12 col-sm-5 form-group">
                                         <label for="email">Email:</label>
                                         <input type="email" class="form-control registrant" name="email" placeholder="Email">
                                     </div>
-                                    <div class="col-xs-12 col-sm-3">
+                                    <div class="col-xs-12 col-sm-3 form-group">
                                         <label for="cellPhone">Cell Phone:</label>
                                         <input type="text" class="form-control registrant" name="phoneNumber" placeholder="Phone Number" data-format="+1 (ddd) ddd-dddd">
                                     </div>
@@ -166,40 +190,35 @@
                     </div>
                     <div class="modal-body">
                         <form id="contact" onsubmit="addRegistrant(event, this)">
-                            <div class="form-group">
+                            <div class="">
                                 <div class="row">
-                                    <div class="col-xs-12 col-sm-6">
+                                    <div class="col-xs-12 col-sm-6 form-group">
                                         <label for="firstContactName">First Name:</label>
                                         <input type="text" class="form-control registrant" name="firstName" placeholder="First Name">
                                     </div>
-                                    <div class="col-xs-12 col-sm-6">
+                                    <div class="col-xs-12 col-sm-6 form-group">
                                         <label for="lastContactName">Last Name:</label>
                                         <input type="text" class="form-control registrant" name="lastName" placeholder="Last Name">
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-xs-12 col-sm-3">
+                                    <div class="col-xs-12 col-sm-3 form-group">
                                         <div class="checkbox chkboxadjust">
                                             <label>
-                                                <input type="checkbox" id="blankCheckbox" value="option1" aria-label="Health Form"> Health Form
+                                                <input type="checkbox" name="healthForm"> Health Form
                                             </label>
                                         </div>
                                     </div>
-                                    <div class="col-xs-12 col-sm-5">
-                                        <div class="radio">
+                                    <div class="col-xs-12 col-sm-5 form-group">
+                                        <div class="checkbox chkboxadjust">
                                             <label>
-                                                <input type="radio" name="blankRadio" id="blankRadio1" value="option1" aria-label="..."> Adult
-                                            </label>
-                                        </div>
-                                        <div class="radio">
-                                            <label>
-                                                <input type="radio" name="blankRadio" id="blankRadio1" value="option1" aria-label="..."> Scout
+                                                <input type="checkbox" name="isAdult"> Adult
                                             </label>
                                         </div>
                                     </div>
-                                    <div class="col-xs-12 col-sm-3" id="tShirt">
+                                    <div class="col-xs-12 col-sm-3 form-group" id="tShirt">
                                         <select name="tShirt" class="form-control col-sm-2 col-xs-12" id="adjustPdng">
-                                            <option> Shirt size</option>
+                                            <option>--- Shirt Size ---</option>
                                             <option>youth-md</option>
                                             <option>youth-lg</option>
                                             <option>Adult-sm</option>
@@ -210,7 +229,7 @@
                                         </select>
                                     </div>
                                     <div>
-                                        <input type="hidden" class="form-control registrant" name="isAdult" value="scout">
+                                        <input type="hidden" class="form-control registrant" name="contact-id" value="scout">
                                     </div>
                                 </div>
                             </div>
@@ -248,8 +267,7 @@
                                 </label>
                             </div>
                             <div class="row-content">
-                                <h4 class="list-group-item-heading">John Smith</h4>
-                                <p class="list-group-item-text">Shirt Size: AL</p>
+                                <h4 class="list-group-item-heading">Add Scouts</h4>
                             </div>
                         </div>
                     </li>
@@ -279,12 +297,14 @@
             <button onclick="thankYouPage()">Submit Final Form</button>
         </div>
     </div>-->
-
+    <form action="thankYouPage.html" method= "POST">
         <div class="row">
-            <div class="col-xs-12  col-sm-4 col-sm-offset-5">
+            <div class="col-xs-12  col-sm-4 col-sm-offset-5">            
                 <input type="submit"></input>
             </div>
         </div>
+        
+    </form>
 
         <div>
             <span>
@@ -303,8 +323,6 @@
             <span id="total-shirt-prices"><div></div></span>
             </span>
         </div>
-
-    </form>
 </body>
 
 <!-- Latest compiled and minified JavaScript -->

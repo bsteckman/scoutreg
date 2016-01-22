@@ -40,7 +40,7 @@ var camp22 = new DayCamp(22, "Cub & Web", "July 13", "Wed", "LDS Stake Center Gr
 var camp23 = new DayCamp(23, "Cub & Web", "July 14", "Thurs", "LDS Stake Center Grounds 3700 S. Maple Grove Rd, Boise", "8:30", "3:30", "Gem State", "Gem-6");
 var camp24 = new DayCamp(24, "Web Only", "July 15-16", "Fri-Sat", "Curtis Park, 14230 Entrance at Channel Rd, Caldwell", "1:30", "3:30", "Gem State", "Gem-7&8");
 
-function dropDown() {
+function loginDropDown() {
     var select = document.getElementById("selectCamp");
      
     for(var i = 0; i < dayCamps.length; i++) {
@@ -52,8 +52,8 @@ function dropDown() {
     }
 }
 
-dropDown();
+loginDropDown();
 
-function submitRegistration(){
+function loginSubmitRegistration(email, troopNumber){
     localStorage.SetItem("dayCamps",JSON.stringify(email, troopNumber));
 }
