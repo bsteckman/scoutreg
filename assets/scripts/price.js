@@ -1,6 +1,6 @@
 var shirtPrice = 10.00;
 var shirtPriceXXL = 12.00;
-var poi = document.getElementById("blankCheckbox")
+
 var shirts = {
     totalPrice: 0,
     total: 0,
@@ -60,7 +60,7 @@ function addShirt(currentUser) {
     }
 }
 function updatePrices(){
-        
+    var poi = document.getElementById("blankCheckbox").value;
     for(var size in shirts.sizes){
         if(size === "xxl"){
             shirts.totalPrice += shirtPriceXXL;
