@@ -1,6 +1,13 @@
+body{
+    background-color: #fff;
+}
 .btn-scout-blue{
     background-color: #003f87 !important;
     color: #fff !important;
+}
+
+.bg-blue{
+    background-color: #005A9C; 
 }
 
 .m-t20{
@@ -8,7 +15,7 @@
 }
 
 .p-1m{
-    padding: 1em;
+    padding: 0.5em;
 }
 
 .scout-life{

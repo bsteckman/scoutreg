@@ -6,6 +6,7 @@
     <!-- Material Design fonts -->
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
     <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Marcellus&amp;subset=latin-ext,latin">
     <!-- Bootstrap -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Material Design -->
@@ -14,31 +15,31 @@
     <link rel="stylesheet" href="assets/styles/style.css" />
 </head>
 
-<body class="container">
+<body>
     <div class="bs-component">
         <div class="jumbotron bg-white">
             <div class="header text-center">
-                <h1 class="p-1m">Ore-Ida Council</h1>
-                <h3>Knight's Adventure</h3>
-                <img class="img-rounded" height="120px" src="assets/img/knight-logo-modified.jpg" alt="Ore-Ida Council Boyscout Logo">
-                <h3>Cub Day Camp 2016</h3>
+                <!--<h1 class="p-1m">Ore-Ida Council</h1>-->
+                <h2>Knight's Adventure</h2>
+                <img class="img-rounded" height="140px" src="assets/img/knight-logo-modified.jpg" alt="Ore-Ida Council Boyscout Logo">
+                <h2>Cub Day Camp 2016</h2>
             </div>
             <div class="panel-body">
                 <div class="col-sm-8 col-sm-offset-2">
                     <form action="registration.html" method="POST">
                         <fieldset>
-                            <div class="form-group">
-                                <label for="email"></label>
-                                <input class="form-control" type="email" name="email"  placeholder="Email" />
+                            <div class="form-group label-floating">
+                                <label for="email">Email</label>
+                                <input class="form-control" type="email" name="email"  placeholder="Email" required/>
                             </div>
                             <br>
-                            <div class="form-group">
-                                <label for="troop"></label>
-                                <input class="form-control" type="text" placeholder="Pack Number" name="troop" />
+                            <div class="form-group label-floating">
+                                <label for="pack">Pack Number</label>
+                                <input class="form-control" type="number" placeholder="Pack Number" name="pack" required/>
                             </div>
-                            <div class="form-group">
-                                <label for="camp"></label>
-                                <select class="form-control" id="selectCamp" name="camp">
+                            <div class="form-group label-floating">
+                                <label for="camp">Day Camp</label>
+                                <select class="form-control" id="selectCamp" name="camp" required>
                                     <option>--- Choose a camp ---</option>
                                 </select>
                             </div>
