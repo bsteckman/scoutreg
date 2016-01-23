@@ -6,6 +6,10 @@ body{
     color: #fff !important;
 }
 
+.text-white{
+    color: #fff !important;
+}
+
 .bg-blue{
     background-color: #005A9C; 
 }
