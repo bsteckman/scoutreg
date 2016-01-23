@@ -15,238 +15,39 @@
 </head>
 
 <body onload="displayModal()">
-    
-        <div class="container-fluid">
 
-        <div class="row">
-            <div class="col-sm-offset-1">
-                <h4>To ensure scout safety and maximize quality of experience, our policy is to provide one 'Walking Leader' to every five campers.</h4>
-                <h4>*ALL BSA registered adults MUST be Youth Protection Trained*</h4>
+    <div class="container-fluid">
+
+        <div class="main-header well">
+            <div class="row">
+                <div class="col-sm-offset-1">
+                    <h4>To ensure scout safety and maximize quality of experience, our policy is to provide one 'Walking Leader' to every five campers.</h4>
+                    <h4>*ALL BSA registered adults MUST be Youth Protection Trained*</h4>
+                </div>
             </div>
-        </div>
-        <div>
-            <h3 class="col-sm-offset-4 col-sm-6 ">Please READ and fill out form completely.</h3>
-        </div>
+            <div>
+                <h3 class="col-sm-offset-4 col-sm-6 ">Please READ and fill out form completely.</h3>
+            </div>
 
-        <!-- Button group modal -->
+            <!-- Button group modal -->
 
-        <div class="btn-group-horizontal" role="group" aria-label="...">
-            <button id="primary-modal-btn" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#primary-contacts-modal">
-                Add Primary/Secondary Contacts
-            </button>
-            <!--<button id="secondary-modal-btn" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#secondary-contacts-modal">
-                Add Secondary Contacts
-            </button>-->
-            <button id="registrant-modal-btn" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#registrant-modal">
-                Add Registrant
-            </button>
-            <!--Gold Card Check Box-->
+            <div class="btn-group-horizontal" role="group" aria-label="...">
+                <button id="primary-modal-btn" type="button" class="btn btn-primary btn-lg" onclick="displayModal(true)">
+                    Add Primary/Secondary Contacts
+                </button>
+
+                <button id="registrant-modal-btn" type="button" class="btn btn-primary btn-lg" onclick="displayModal(false)">
+                    Add Registrant
+                </button>
+                <!--Gold Card Check Box-->
                 <div class="checkbox chkboxadjust">
                     <label>
                         <input type="checkbox" id="blankCheckbox shirt-final" value="myoption" aria-label="gold-card-member"> Gold Card Member
                     </label>
                 </div>
-        </div>
-
-        <!-- Primary Contacts Modal -->
-
-        <div class="modal fade" id="primary-contacts-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button id="modal-btn" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Primary Contact</h4>
-                    </div>
-                    <div class="modal-body">
-                    <!--Broken modal button issue ?-->
-                        <form id="contact" onsubmit="addRegistrant(event, this)">
-                            <div class="">
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-6 form-group">
-                                        <label for="firstContactName">First Name:</label>
-                                        <input type="text" class="form-control registrant" name="firstName" placeholder="First Name">
-                                    </div>
-                                    <div class="col-xs-12 col-sm-6 form-group">
-                                        <label for="lastContactName">Last Name:</label>
-                                        <input type="text" class="form-control registrant" name="lastName" placeholder="Last Name">
-                                    </div>
-                                </div>
-                                <div class="col-xs-12 col-sm-3 form-group" id="tShirt">
-                                        <label for="tShirt">Shirt Size:</label>
-                                        <select name="tShirt" class="form-control col-sm-2 col-xs-12" id="adjustPdng">
-                                            <option>--- Shirt Size ---</option>
-                                            <option>youth-md</option>
-                                            <option>youth-lg</option>
-                                            <option>Adult-sm</option>
-                                            <option>Adult-md</option>
-                                            <option>Adult-lg</option>
-                                            <option>Adult-xl</option>
-                                            <option>Adult-xxl</option>
-                                        </select>
-                                    </div>
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-3 form-group">
-                                        <label for="position">Position:</label>
-                                        <input type="text" class="form-control registrant" name="position" placeholder="Position">
-                                    </div>
-                                    <div class="col-xs-12 col-sm-5 form-group">
-                                        <label for="email">Email:</label>
-                                        <input type="email" class="form-control registrant" name="email" placeholder="Email">
-                                    </div>
-                                    <div class="col-xs-12 col-sm-3 form-group">
-                                        <label for="cellPhone">Cell Phone:</label>
-                                        <input type="text" class="form-control registrant" name="phoneNumber" placeholder="Phone Number" data-format="+1 (ddd) ddd-dddd">
-                                    </div>
-                                    <div>
-                                        <!--<input type="hidden" class="form-control registrant" name="contact-id" value="primary">-->
-                                        <input type="hidden" class="form-control registrant" name="isAdult" value="true">
-                                         <input type="hidden" class="form-control registrant" name="healthForm" value="false">
-                                    </div>
-                                </div>
-                            </div>
-                            <button type="submit" class="btn btn-primary" data-dismiss="modal">Save changes</button>
-
-                        </form>
-                        <!--End contact form-->
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" id="primary-close-btn" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
             </div>
         </div>
 
-        <!-- Secondary Contacts Modal -->
-
-        <!--<div class="modal fade" id="secondary-contacts-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button id="modal-btn" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Secondary Contact</h4>
-                    </div>
-                    <div class="modal-body">
-                        <form id="contact" onsubmit="addRegistrant(e, this)" >
-                            <div class="">
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-6 form-group">
-                                        <label for="firstContactName">First Name:</label>
-                                        <input type="text" class="form-control registrant" name="firstName" placeholder="First Name">
-                                    </div>
-                                    <div class="col-xs-12 col-sm-6 form-group">
-                                        <label for="lastContactName">Last Name:</label>
-                                        <input type="text" class="form-control registrant" name="lastName" placeholder="Last Name">
-                                    </div>
-                                    <div class="col-xs-12 col-sm-3 form-group" id="tShirt">
-                                        <select name="tShirt" class="form-control col-sm-2 col-xs-12" id="adjustPdng">
-                                            <option>--- Shirt Size ---</option>
-                                            <option>youth-md</option>
-                                            <option>youth-lg</option>
-                                            <option>Adult-sm</option>
-                                            <option>Adult-md</option>
-                                            <option>Adult-lg</option>
-                                            <option>Adult-xl</option>
-                                            <option>Adult-xxl</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-3 form-group">
-                                        <label for="position">Position:</label>
-                                        <input type="text" class="form-control registrant" name="position" placeholder="Position">
-                                    </div>
-                                    <div class="col-xs-12 col-sm-5 form-group">
-                                        <label for="email">Email:</label>
-                                        <input type="email" class="form-control registrant" name="email" placeholder="Email">
-                                    </div>
-                                    <div class="col-xs-12 col-sm-3 form-group">
-                                        <label for="cellPhone">Cell Phone:</label>
-                                        <input type="text" class="form-control registrant" name="phoneNumber" placeholder="Phone Number" data-format="+1 (ddd) ddd-dddd">
-                                    </div>
-                                    <div>
-                                        <input type="hidden" class="form-control registrant" name="contact-id" value="secondary">
-                                        <input type="hidden" class="form-control registrant" name="isAdult" value="secondary">
-                                    </div>
-                                </div>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Save changes</button>
-
-                        </form>-->
-                        <!--End contact form-->
-                    <!--</div>
-                    <div class="modal-footer">
-                        <button type="button" id="secondary-close-btn" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>-->
-
-        <!-- Registrant Modal -->
-
-        <div class="modal fade" id="registrant-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button id="modal-btn" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Registrant</h4>
-                    </div>
-                    <div class="modal-body">
-                        <form id="contact" onsubmit="addRegistrant(event, this)">
-                            <div class="">
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-6 form-group">
-                                        <label for="firstContactName">First Name:</label>
-                                        <input type="text" class="form-control registrant" name="firstName" placeholder="First Name">
-                                    </div>
-                                    <div class="col-xs-12 col-sm-6 form-group">
-                                        <label for="lastContactName">Last Name:</label>
-                                        <input type="text" class="form-control registrant" name="lastName" placeholder="Last Name">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-3 form-group">
-                                        <div class="checkbox chkboxadjust">
-                                            <label>
-                                                <input type="checkbox" name="healthForm"> Health Form
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-5 form-group">
-                                        <div class="checkbox chkboxadjust">
-                                            <label>
-                                                <input type="checkbox" name="isAdult"> Adult
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-3 form-group" id="tShirt">
-                                        <select name="tShirt" class="form-control col-sm-2 col-xs-12" id="adjustPdng">
-                                            <option>--- Shirt Size ---</option>
-                                            <option>youth-md</option>
-                                            <option>youth-lg</option>
-                                            <option>Adult-sm</option>
-                                            <option>Adult-md</option>
-                                            <option>Adult-lg</option>
-                                            <option>Adult-xl</option>
-                                            <option>Adult-xxl</option>
-                                        </select>
-                                    </div>
-                                    <div>
-                                        <input type="hidden" class="form-control registrant" name="contact-id" value="scout">
-                                    </div>
-                                </div>
-                            </div>
-                            <button type="submit" class="btn btn-primary" data-dismiss="modal">Save changes</button>
-                        </form>
-                        <!--End contact form-->
-                    </div>
-                    <div class="modal-footer">
-                        <button id="scout-close-btn" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!--</form>-->
 
         <!--DISPLAY STUFF HERE-->
 
@@ -273,69 +74,117 @@
                             </div>
                         </div>
                     </li>
-                    <!--NEW THING-->
-                    <li class="list-group-separator"></li>
-                    <li class="list-group-item">
-                        <div class="list-group-item">
-                            <div class="row-action-primary checkbox">
-                                <label>
-                                    <input type="checkbox">
-                                </label>
-                            </div>
-                            <div class="row-content">
-                                <h4 class="list-group-item-heading">John Smith</h4>
-                                <p class="list-group-item-text">Shirt Size: AL</p>
-                            </div>
-                        </div>
-                    </li>
                 </ul>
 
             </div>
         </div>
 
+    <!--PRICES START HERE-->
+        <div class="well">
+            <div>
+                Adult XXL: <span id="xxl-shirt-sizes"></span>
+            </div>
+            <div>
+                Adult XL: <span id="xl-shirt-sizes"></span>
+            </div>
+            <div>
+                Adult LG: <span id="lg-shirt-sizes"></span>
+            </div>
+            <div>
+                Adult MD: <span id="md-shirt-sizes"></span>
+            </div>
+            <div>
+                Adult SM: <span id="sm-shirt-sizes"></span>
+            </div>
 
-        <!--<div class="row">
-        <div class="col-xs-12  col-sm-4 col-sm-offset-5">
-            <button onclick="thankYouPage()">Submit Final Form</button>
-        </div>
-    </div>-->
-    <form action="thankYouPage.html" method= "POST">
-        <div class="row">
-            <div class="col-xs-12  col-sm-4 col-sm-offset-5">            
-                <input type="submit"></input>
+            <div>
+                Youth LG: <span id="ylg-shirt-sizes"></span>
+            </div>
+            <div>
+                Youth MD: <span id="ymd-shirt-sizes"></span>
+            </div>
+            <div>
+                Total Price: <span id="total-shirt-prices">0</span>
             </div>
         </div>
-        
-    </form>
 
-        <div>
-            <span>
-            <div id="xxl-shirt-sizes"></div>
-            <div id="xxl-shirt-prices"></div>
-            <div id="xl-shirt-sizes"></div>
-            <div id="xl-shirt-prices"></div>
-            <div id="md-shirt-sizes"></div>
-            <div id="md-shirt-prices"></div>
-            <div id="sm-shirt-sizes"></div>
-            <div id="sm-shirt-prices"></div>
-            <div id="ylg-shirt-sizes"></div>
-            <div id="ylg-shirt-prices"></div>
-            <div id="ymd-shirt-sizes"></div>
-            <div id="ymd-shirt-prices"></div>
-            <span id="total-shirt-prices"><div></div></span>
-            </span>
+        <!--START MODALS HERE-->
+
+        <!-- Registration Modal -->
+
+        <div class="modal fade" id="registration-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button id="modal-btn" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Primary Contact</h4>
+                    </div>
+                    <div class="modal-body">
+                        <!--Broken modal button issue ?-->
+                        <form onsubmit="addRegistrant(event, this)">
+                            <div class="">
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-6 form-group">
+                                        <label for="firstContactName">First Name:</label>
+                                        <input type="text" class="form-control registrant" name="firstName" placeholder="First Name">
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 form-group">
+                                        <label for="lastContactName">Last Name:</label>
+                                        <input type="text" class="form-control registrant" name="lastName" placeholder="Last Name">
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-3 form-group" id="tShirt">
+                                    <label for="tShirt">Shirt Size:</label>
+                                    <select name="tShirt" class="form-control col-sm-2 col-xs-12" id="adjustPdng">
+                                        <option>--- Shirt Size ---</option>
+                                        <option>youth-md</option>
+                                        <option>youth-lg</option>
+                                        <option>Adult-sm</option>
+                                        <option>Adult-md</option>
+                                        <option>Adult-lg</option>
+                                        <option>Adult-xl</option>
+                                        <option>Adult-xxl</option>
+                                    </select>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-3 form-group">
+                                        <label for="position">Position:</label>
+                                        <input type="text" class="form-control registrant" name="position" placeholder="Position">
+                                    </div>
+                                    <div class="col-xs-12 col-sm-5 form-group">
+                                        <label for="email">Email:</label>
+                                        <input type="email" class="form-control registrant" name="email" placeholder="Email">
+                                    </div>
+                                    <div class="col-xs-12 col-sm-3 form-group">
+                                        <label for="cellPhone">Cell Phone:</label>
+                                        <input type="text" class="form-control registrant" name="phoneNumber" placeholder="Phone Number" data-format="+1 (ddd) ddd-dddd">
+                                    </div>
+                                    <div>
+                                        <input type="hidden" class="form-control registrant" name="isAdult" value="true">
+                                        <input type="hidden" class="form-control registrant" name="healthForm" value="false">
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        </form>
+                        <!--End contact form-->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default close-btn" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
         </div>
 </body>
 
 <!-- Latest compiled and minified JavaScript -->
 
 <script src="assets/scripts/jquery-2.2.0.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
-crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="assets/plugins/bootstrap-material/dist/js/ripples.min.js"></script>
 <script src="assets/plugins/bootstrap-material/dist/js/material.min.js"></script>
-<script src="assets/scripts/registration.js"></script>
 <script src="assets/scripts/price.js"></script>
+<script src="assets/scripts/registration.js"></script>
 
 
 

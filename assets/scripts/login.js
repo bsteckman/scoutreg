@@ -46,7 +46,7 @@ function loginDropDown() {
     for(var i = 0; i < dayCamps.length; i++) {
         var camp = dayCamps[i];
         var el = document.createElement('option');
-        el.textContent = camp.stake + ':  ' + camp.dates ;
+        el.textContent = camp.id + ':  ' + camp.dates + ', ' + camp.location ;
         el.value = camp.id;
         select.appendChild(el);
     }
