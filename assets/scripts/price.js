@@ -1,10 +1,33 @@
 var shirtPrice = 10.00;
 var shirtPriceXXL = 12.00;
+var goldCardElem = document.getElementById("gold-card-member");
+var now = Date.now();
+var earlyBird = new Date(2016, 4, 24).getTime();
+var pp = now < earlyBird ? 30 : 40;
+
+var priceElems = {
+    totalPrice: document.getElementById('total-price'),
+    campFee: document.getElementById('camp-fee'),
+    totalParticipants: document.getElementById('total-participants'),
+    totalShirts: document.getElementById('shirt-count'),
+    shirtsPrice: document.getElementById('shirts-price') 
+}
+
+var shirtElems = {
+    xxl: document.getElementById("xxl-shirt-sizes"),
+    xl: document.getElementById("xl-shirt-sizes"),
+    lg: document.getElementById("lg-shirt-sizes"),
+    md: document.getElementById("md-shirt-sizes"),
+    sm: document.getElementById("sm-shirt-sizes"),
+    ylg: document.getElementById("ylg-shirt-sizes"),
+    ymd: document.getElementById("ymd-shirt-sizes")
+}
+
 
 var shirts = {
     totalPrice: 0,
     total: 0,
-    sizes:{
+    sizes: {
         xxl: 0,
         xl: 0,
         lg: 0,
@@ -14,11 +37,11 @@ var shirts = {
         ymd: 0
     }
 }
-function resetPrices(){
+function resetPrices() {
     shirts = {
-        totalPrice: 0, 
+        totalPrice: 0,
         total: 0,
-        sizes:{
+        sizes: {
             xxl: 0,
             xl: 0,
             lg: 0,
@@ -31,66 +54,68 @@ function resetPrices(){
 }
 
 function addShirt(currentUser) {
-
-    if (currentUser.tShirt) {
-        switch (currentUser.tShirt) {
-            case "Adult-xxl":
-                shirts.sizes.xxl++;
-                break;
-            case "Adult-xl":
-                shirts.sizes.xl++;
-                break;
-            case "Adult-lg":
-                shirts.sizes.lg++;
-                break;
-            case "Adult-md":
-                shirts.sizes.md++;
-                break;
-            case "Adult-sm":
-                shirts.sizes.sm++;
-                break;
-            case "youth-lg":
-                shirts.sizes.ylg++;
-                break;
-            case "youth-md":
-                shirts.sizes.ymd++;
-                break;
-        }
+    if (!currentUser.tShirt) {
+        return;
+    }
     shirts.total++;
+    switch (currentUser.tShirt) {
+        case "Adult-xxl":
+            shirts.sizes.xxl++;
+            break;
+        case "Adult-xl":
+            shirts.sizes.xl++;
+            break;
+        case "Adult-lg":
+            shirts.sizes.lg++;
+            break;
+        case "Adult-md":
+            shirts.sizes.md++;
+            break;
+        case "Adult-sm":
+            shirts.sizes.sm++;
+            break;
+        case "youth-lg":
+            shirts.sizes.ylg++;
+            break;
+        case "youth-md":
+            shirts.sizes.ymd++;
+            break;
     }
 }
-function updatePrices(){
-    var poi = document.getElementById("blankCheckbox").value;
-    for(var size in shirts.sizes){
-        if(size === "xxl"){
-            shirts.totalPrice += shirtPriceXXL;
+function updatePrices() {
+    var poi = goldCardElem.value;
+    for (var size in shirts.sizes) {
+        if (size === "xxl") {
+            shirts.totalPrice += shirts.sizes[size] * shirtPriceXXL;
         } else {
-            shirts.totalPrice += shirtPrice;
+            shirts.totalPrice += shirts.sizes[size] * shirtPrice;
         }
-    }        
+    }
+
+    if (poi) {
+        registration.discount = 5;
+    }
     
-    if(poi){
-        shirts.totalPrice *= .95; 
-    }    
-    
+    registration.totalParticipants = registration.participants.length;
+    registration.totalPrice = registration.participants.length * (pp - registration.discount)
+    registration.campFee =  pp - registration.discount
+    registration.totalShirts = shirts.total;
+    registration.shirtsPrice = shirts.totalPrice;
     draw();
-    
 }
 
-function draw(){
-    document.getElementById("xxl-shirt-sizes").innerHTML = String("Total XXL Shirts: " + shirts.sizes.xxl);
-
-    document.getElementById("xl-shirt-sizes").innerHTML = String("Total XL Shirts: " + shirts.sizes.lg);
-
-    document.getElementById("md-shirt-sizes").innerHTML = String("Total MD Shirts: " + shirts.sizes.md);
-
-    document.getElementById("sm-shirt-sizes").innerHTML = String("Total SM Shirts: " + shirts.sizes.sm);
-
-    document.getElementById("ylg-shirt-sizes").innerHTML = String("Total YLG Shirts: " + shirts.sizes.ylg);
-
-
-    document.getElementById("ymd-shirt-prices").innerHTML = String("Total YMD Shirts: " + shirts.sizes.ymd);
-    document.getElementById("total-shirt-prices").innerHTML = String("Total price is " + shirts.totalPrice);
+function draw() {
+    for (var key in shirts.sizes) {
+        var quantity = shirts.sizes[key];
+        var elem = shirtElems[key];
+        elem.textContent = quantity;
+    }
+    
+    for(var key in priceElems){
+        var value = registration[key];
+        priceElems[key].textContent = value; 
+    }
+    
 }
 
 

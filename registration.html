@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="assets/styles/style.css" />
 </head>
 
-<body onload="displayModal()">
+<body onload="displayModal('primary-contacts-modal')">
 
     <div class="container-fluid">
 
@@ -46,14 +46,19 @@
                     <!-- Button group modal -->
 
                     <div class="btn-group-horizontal" role="group">
-                        <button id="primary-modal-btn" type="button" class="btn btn-primary btn-lg" onclick="displayModal(true)">
-                            Add Primary/Secondary Contacts
-                        </button>
+                       
 
-                        <button id="registrant-modal-btn" type="button" class="btn btn-primary btn-lg" onclick="displayModal(false)">
-                            Add Participants
-                        </button>
+                       
                     </div>
+                </div>
+                <div class="col-sm-12">
+                    <h3>Contacts</h3>
+                     <button id="primary-modal-btn" type="button" class="btn btn-primary btn-lg" onclick="displayModal('primary-contacts-modal')">
+                            Add Primary Contacts
+                        </button>
+                    <ul class="list-group list-horizontal" id="contact-list">
+
+                    </ul>
                 </div>
             </div>
         </div>
@@ -64,10 +69,13 @@
                 <div class="well main-list">
                     <div class="clearfix">
                         <h3>Participants</h3>
+                         <button id="registrant-modal-btn" type="button" class="btn btn-primary btn-lg" onclick="displayModal('participant-modal')" disabled="true">
+                            Add Participants
+                        </button>
                     </div>
 
-                    <ul class="list-group" id="registrant-list">
-                       
+                    <ul class="list-group" id="participant-list">
+
                     </ul>
 
                 </div>
@@ -93,7 +101,7 @@
                             <ul class="list-group">
                                 <li class="list-group-item">Participants: <span id="total-participants"></span></li>
                                 <li class="list-group-item">Price/Person: <span id="camp-fee"></span></li>
-                                <li class="list-group-item">Shirts: <span id="shirts-fee"></span></li>
+                                <li class="list-group-item">Total Shirts Price: <span id="shirts-price"></span></li>
                                 <li class="list-group-item">Gold Card: <span id="gold-card-discount"></span></li>
                                 <li class="list-group-item" style="border-top: 1px solid #3c3c3c; margin-top: 8px;font-weight: bold;">Total: <span id="total-price"></span></li>
                             </ul>
@@ -125,6 +133,9 @@
                                 <div class="list-group-item">
                                     Youth MD: <span id="ymd-shirt-sizes"></span>
                                 </div>
+                                <div class="list-group-item">
+                                    Shirt Count: <span id="shirt-count"></span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -134,9 +145,9 @@
     </div>
     <!--START MODALS HERE-->
 
-    <!-- Registration Modal -->
+    <!-- Primary Contacts Modal -->
 
-    <div class="modal fade" id="registration-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal fade" id="primary-contacts-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -144,7 +155,7 @@
                     <h4 class="modal-title" id="myModalLabel">Primary Contacts</h4>
                 </div>
                 <div class="modal-body">
-                    <form onsubmit="addRegistrant(event, this)">
+                    <form onsubmit="addRegistrant(event, this, 'contact')">
                         <div class="">
                             <div class="row">
                                 <div class="col-xs-12 col-sm-6 form-group">
@@ -175,12 +186,76 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary">Save changes</button>
+                        <button type="submit" class="btn btn-primary">Save Contact</button>
                     </form>
                     <!--End contact form-->
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default close-btn" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--</form>-->
+
+    <!-- Participant Modal -->
+
+    <div class="modal fade" id="participant-modal" tabindex="-2" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button id="modal-btn" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Participant</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="contact" onsubmit="addRegistrant(event, this)">
+                        <div class="">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-6 form-group">
+                                    <label for="firstContactName">First Name:</label>
+                                    <input type="text" class="form-control registrant" name="firstName" placeholder="First Name">
+                                </div>
+                                <div class="col-xs-12 col-sm-6 form-group">
+                                    <label for="lastContactName">Last Name:</label>
+                                    <input type="text" class="form-control registrant" name="lastName" placeholder="Last Name">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-3 form-group">
+                                    <div class="checkbox chkboxadjust">
+                                        <label>
+                                            <input type="checkbox" name="healthForm"> Health Form
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-5 form-group">
+                                    <div class="checkbox chkboxadjust">
+                                        <label>
+                                            <input type="checkbox" name="isAdult"> Adult
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-3 form-group" id="tShirt">
+                                    <select name="tShirt" class="form-control col-sm-2 col-xs-12" id="adjustPdng">
+                                        <option value="false">--- Shirt Size ---</option>
+                                        <option>youth-md</option>
+                                        <option>youth-lg</option>
+                                        <option>Adult-sm</option>
+                                        <option>Adult-md</option>
+                                        <option>Adult-lg</option>
+                                        <option>Adult-xl</option>
+                                        <option>Adult-xxl</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Add Next</button>
+                    </form>
+                    <!--End contact form-->
+                </div>
+                <div class="modal-footer">
+                    <button id="scout-close-btn" type="button" class="btn btn-default" data-dismiss="modal">Finished</button>
                 </div>
             </div>
         </div>
