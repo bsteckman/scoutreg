@@ -26,7 +26,7 @@
             </div>
             <div class="panel-body">
                 <div class="col-sm-8 col-sm-offset-2">
-                    <form action="registration.html" method="POST">
+                    <form onsubmit="login(event, this)">
                         <fieldset>
                             <div class="form-group label-floating">
                                 <label for="email">Email</label>
@@ -53,6 +53,8 @@
     <script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
     <script src="assets/js/ripples.min.js"></script>
     <script src="assets/js/material.min.js"></script>
+		<script src="assets/js/firebase.js"></script>
+		<script src="assets/scripts/fb-service.js"></script>
     <script src="assets/scripts/login.js"></script>
 
 
