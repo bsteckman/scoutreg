@@ -1,12 +1,14 @@
 /* global Firebase */
 function firebaseService() {
 
-	var _user = {}
-	var firebaseUrl = 'https://ore-ida.firebaseio.com/'
+	var _user = {};
+	var _campList = {};
+	var firebaseUrl = 'https://ore-ida.firebaseio.com/';
 	var firebaseLogin = new Firebase(firebaseUrl);
 
 	return {
-        getCampForm: getCampForm,
+    getCampForm: getCampForm,
+		getCamp: getCamp,
 		camps: getCamps,
 		login: login,
 		user: _user 
@@ -24,7 +26,7 @@ function firebaseService() {
 				firebaseLogin.child('packs').child(user.pack).child('users').child(user.id).update(user)
 				firebaseLogin.child('users').child(user.id).child('packs').child(user.pack).update(user);
 				//create camp form
-				firebaseLogin.child('camp-forms').child('2016').child(user.camp).child(user.pack).child(user.id).update({author: user.email});
+				firebaseLogin.child('camp-forms').child('2016').child(user.camp).child(user.pack).child(user.id).update({registrar: user.email});
 				cb(user);
 			} else {
 				console.log('something went wrong');
@@ -34,19 +36,24 @@ function firebaseService() {
 	}
 
 	function setUserData(user){
-		_user.campForm = firebaseLogin.child('camp-forms').child('2016').child(user.camp).child(user.id);
+		_user.campForm = firebaseLogin.child('camp-forms').child('2016').child(user.camp).child(user.pack).child(user.id);
 	}
     
     function getCampForm(cb, update){
         _user.campForm.on('value', function(data){
-            cb(data.val());
+            cb(_user.campForm, data.val());
             update();
         });
     }
 
 	function getCamps(cb){
 		firebaseLogin.child('camps').child('2016').on('value', function(data){
-			return cb(data.val());
+			_campList = data.val();
+			return cb(_campList);
 		})
+	}
+	
+	function getCamp(key){
+		return _campList[key];
 	}
 }
