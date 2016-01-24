@@ -38,7 +38,8 @@
 				<button id="primary-modal-btn" type="button" class="btn btn-primary btn-lg" onclick="displayModal('primary-contacts-modal')">
 					Add Primary Contacts
 				</button>
-				<ul class="list-group list-horizontal" id="contact-list">
+                <hr/>
+				<ul class="list-group list-inline text-center" id="contact-list">
 
 				</ul>
 			</div>
@@ -136,7 +137,7 @@
 			<div class="modal-header">
 				<button id="modal-btn" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				<h4 class="modal-title" id="myModalLabel">Primary Contacts</h4>
-				<p>To begin filling out the registration form we first need to know who the primary and secondary contacts are.</p>
+				<p>To begin filling out the registration form we first need to know who the primary and secondary contacts will be.</p>
 			</div>
 			<div class="modal-body">
 				<form onsubmit="addRegistrant(event, this, 'contact')">
@@ -191,9 +192,7 @@
 			<div class="modal-header">
 				<button id="modal-btn" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				<h4 class="modal-title" id="myModalLabel">Participant</h4>
-				<p id="initial-adult-message" hidden>Two adult participants are required prior to adding scouts</p>
-				<p id="extra-adult-needed" hidden>Another adult leader is required to continue adding scouts</p>
-				<p id="add-a-scout" hidden>Add Scouts to your registration</p>
+				<p class="alert alert-info" id="reg-message">Two adult participants are required prior to adding scouts</p>
 			</div>
 			<div class="modal-body">
 				<form id="contact" onsubmit="addRegistrant(event, this)">
@@ -201,11 +200,11 @@
 						<div class="row">
 							<div class="col-xs-12 col-sm-6 form-group">
 								<label for="firstContactName">First Name:</label>
-								<input type="text" class="form-control registrant" name="firstName" placeholder="First Name">
+								<input type="text" class="form-control registrant" name="firstName" placeholder="First Name" required>
 							</div>
 							<div class="col-xs-12 col-sm-6 form-group">
 								<label for="lastContactName">Last Name:</label>
-								<input type="text" class="form-control registrant" name="lastName" placeholder="Last Name">
+								<input type="text" class="form-control registrant" name="lastName" placeholder="Last Name" required>
 							</div>
 						</div>
 						<div class="row">
@@ -247,3 +246,6 @@
 		</div>
 	</div>
 </div>
+
+<script src="assets/scripts/price.js"></script>
+<script src="assets/scripts/registration.js"></script>

@@ -1,20 +1,10 @@
-var contactForm = true;
-//Get camp data
-var registeredCamp = JSON.parse(localStorage.getItem("daycamps"));
-var participantBtn = document.getElementById('registrant-modal-btn');
+var registration;
 
-var initialAdult = $('initial-adult-message');
-var extraAdult = $('extra-adult-needed');
 
-//Master List
-var registration = {
-    discount: 0,
-    participants: [],
-    contacts: []
-}
 var registrantList = [];
 
 function lockForm (){
+    var participantBtn = document.getElementById('registrant-modal-btn');
     if(registration.contacts.length < 2){
         participantBtn.disabled = true;
     } else {
@@ -23,7 +13,6 @@ function lockForm (){
 }
 
 function Contact(firstName, lastName, position, email, phoneNumber){
-    this.id = getId();
     this.firstName = firstName;
     this.lastName = lastName;
     this.position = position;
@@ -32,7 +21,6 @@ function Contact(firstName, lastName, position, email, phoneNumber){
 }
 
 function Participant(firstName, lastName, tShirt, healthForm, isAdult) {
-    this.id = getId();
     this.firstName = firstName;
     this.lastName = lastName;
     this.isAdult = isAdult;
@@ -40,22 +28,9 @@ function Participant(firstName, lastName, tShirt, healthForm, isAdult) {
     this.healthForm = healthForm;
 }
 
-function getId(){
-  function s4() {
-    return Math.floor((1 + Math.random()) * 0x10000)
-      .toString(16)
-      .substring(1);
-  }
-  return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
-    s4() + '-' + s4() + s4() + s4();
-}
-
 function addRegistrant(e, form, type) {
     // Prevent page reload
     e.preventDefault();
-		
-		showMessage();
-		
     // define values
     var firstName = form['firstName'].value;
     var lastName = form['lastName'].value;
@@ -72,13 +47,22 @@ function addRegistrant(e, form, type) {
     }
     // clear form
     form.reset();
+    showMessage();	
     update();
+    if(registration.contacts.length >= 2){
+        displayModal('participant-modal');
+    }
 }
 
 function showMessage(){
-	if(registration.participants < 2){
-		$('initial-adult-message').show();
-	}
+    var regMessage = $('#reg-message');
+	if(registration.participants.length < 2){
+        regMessage.text('Two adult participants are required prior to adding scouts');
+	} else if(registration.participants.length % 5 === 0 && registration.participants.length > 10){
+        regMessage.text('Another adult leader is required to continue adding scouts');
+    } else {
+        regMessage.text('Add Scouts to your registration');
+    }
 }
 
 function drawContacts(currentUser){
@@ -86,7 +70,7 @@ function drawContacts(currentUser){
     var template = '';
     for(var i = 0; i < registration.contacts.length; i++){
         var currentUser = registration.contacts[i];
-        template += '<li class="list-group-item col-sm-6" id="'+ currentUser.id +'"><h4 class="list-group-item-heading">' + currentUser.firstName + ' ' + currentUser.lastName +'</h4><p class="list-group-item-text"><b>Email <i class="glyphicon glyphicon-envelope"></i></b> ' + currentUser.email + '</p><p class="list-group-item-text"><b>Phone <i class="glyphicon glyphicon-earphone"></i></b> ' + currentUser.phoneNumber + '</p><p class="list-group-item-text"><b>Position:</b> ' + currentUser.position + '</p><div class="button-group"><button class="btn btn-raised btn-info" onclick="editContact(this, \'contacts\')">Edit</button><button class="btn btn-raised btn-danger" onclick="removeContact(this, \'contacts\')">Remove</button></div></div></div></li><li class="list-group-separator"></li>';
+        template += '<li class="list-group-item text-left" id="'+ currentUser.id +'"><h4 class="list-group-item-heading">' + currentUser.firstName + ' ' + currentUser.lastName +'</h4><p class="list-group-item-text"><b>Email <i class="glyphicon glyphicon-envelope"></i></b> ' + currentUser.email + '</p><p class="list-group-item-text"><b>Phone <i class="glyphicon glyphicon-earphone"></i></b> ' + currentUser.phoneNumber + '</p><p class="list-group-item-text"><b>Position:</b> ' + currentUser.position + '</p><div class="button-group"><button class="btn btn-raised btn-info" onclick="editContact(this, \'contacts\')">Edit</button><button class="btn btn-raised btn-danger" onclick="removeContact(this, \'contacts\')">Remove</button></div></div></div></li><li class="list-group-separator"></li>';
         //Appends currentuser to the table
     }
     $('#contact-list').append(template);
@@ -122,7 +106,7 @@ function update() {
         if (currentUser.isAdult) {
            adult = "adult"; 
         }
-        var myTemplate = '<li class="list-group-item' + adult + '" id="'+currentUser.id+'"><div class="list-group-item"><div class="row-action-primary checkbox"><label><input type="checkbox" value="' + currentUser.healthForm + '"></label></div><div class="row-content"><h4 class="list-group-item-heading">' + currentUser.firstName + ' ' + currentUser.lastName + '</h4><p class="list-group-item-text">Shirt Size: ' + currentUser.tShirt + '</p><div class="button-group"><button class="btn btn-raised btn-warning" onclick="edit(this, \'participants\')">Edit</button><button class="btn btn-raised btn-danger" onclick="removeContact(this, \'participants\')">Remove</button></div></div></div></li><li class="list-group-separator"></li>';
+        var myTemplate = '<li class="list-group-item ' + adult + '" id="'+currentUser.id+'"><div class="list-group-item"><div class="row-action-primary checkbox"><label><input type="checkbox" value="' + currentUser.healthForm + '"></label></div><div class="row-content"><h4 class="list-group-item-heading">' + currentUser.firstName + ' ' + currentUser.lastName + '</h4><p class="list-group-item-text">Shirt Size: ' + currentUser.tShirt + '</p><div class="button-group"><button class="btn btn-raised btn-warning" onclick="edit(this, \'participants\')">Edit</button><button class="btn btn-raised btn-danger" onclick="removeContact(this, \'participants\')">Remove</button></div></div></div></li><li class="list-group-separator"></li>';
         //Appends currentuser to the table
         $('#participant-list').append(myTemplate);
         addShirt(currentUser);

@@ -60,19 +60,19 @@
 	<script src="assets/js/material.min.js"></script>
 	<script src="assets/js/firebase.js"></script>
 	<script src="assets/scripts/fb-service.js"></script>
-	<script src="assets/scripts/login.js"></script>
-	<script src="assets/scripts/price.js"></script>
-	<script src="assets/scripts/registration.js"></script>
-
 	<script>
-		$('#reg-form').load('registration.html')
-		$('#thank-you').load('thankyou.html')
+		$('#reg-form').load('registration.html', function(){
+		  $('#thank-you').load('thankyou.html', function(){
+            $.material.init()      
+          })
+        })
 	</script>
-
+	<script src="assets/scripts/login.js"></script>
+	
 
 	<!--START MATERIAL THEME-->
 	<script>
-		$.material.init()
+		
 	</script>
 
 </body>

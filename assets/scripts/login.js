@@ -29,5 +29,11 @@ function showRegForm(){
 	$('#login-form').hide();
 	$('#reg-form').show('fast', function(){
 		displayModal('primary-contacts-modal');
+        db.getCampForm(function(data) {
+        registration = data || { discount: 0,
+                participants: [],
+                contacts: []
+            }
+        }, update);
 	});
 }

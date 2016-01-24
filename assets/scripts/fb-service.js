@@ -6,6 +6,7 @@ function firebaseService() {
 	var firebaseLogin = new Firebase(firebaseUrl);
 
 	return {
+        getCampForm: getCampForm,
 		camps: getCamps,
 		login: login,
 		user: _user 
@@ -35,6 +36,13 @@ function firebaseService() {
 	function setUserData(user){
 		_user.campForm = firebaseLogin.child('camp-forms').child('2016').child(user.camp).child(user.id);
 	}
+    
+    function getCampForm(cb, update){
+        _user.campForm.on('value', function(data){
+            cb(data.val());
+            update();
+        });
+    }
 
 	function getCamps(cb){
 		firebaseLogin.child('camps').child('2016').on('value', function(data){
