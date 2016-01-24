@@ -3,6 +3,9 @@ var contactForm = true;
 var registeredCamp = JSON.parse(localStorage.getItem("daycamps"));
 var participantBtn = document.getElementById('registrant-modal-btn');
 
+var initialAdult = $('initial-adult-message');
+var extraAdult = $('extra-adult-needed');
+
 //Master List
 var registration = {
     discount: 0,
@@ -50,6 +53,9 @@ function getId(){
 function addRegistrant(e, form, type) {
     // Prevent page reload
     e.preventDefault();
+		
+		showMessage();
+		
     // define values
     var firstName = form['firstName'].value;
     var lastName = form['lastName'].value;
@@ -67,6 +73,12 @@ function addRegistrant(e, form, type) {
     // clear form
     form.reset();
     update();
+}
+
+function showMessage(){
+	if(registration.participants < 2){
+		$('initial-adult-message').show();
+	}
 }
 
 function drawContacts(currentUser){
@@ -121,7 +133,6 @@ function update() {
 }
 
 function displayModal(id) {
-    //TODO: If registrantList < 0 
     $("#"+id).modal({
         show: true
     });

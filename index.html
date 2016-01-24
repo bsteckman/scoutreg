@@ -1,67 +1,79 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <title>Ore-Ida Council Summer 2016 Camp Registration Form</title>
-    <!-- Material Design fonts -->
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
-    <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Marcellus&amp;subset=latin-ext,latin">
-    <!-- Bootstrap -->
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Material Design -->
-    <link href="assets/css/bootstrap-material-design.css" rel="stylesheet">
-    <link href="assets/css/ripples.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/styles/style.css" />
+	<meta charset="UTF-8">
+	<title>Ore-Ida Council Summer 2016 Camp Registration Form</title>
+	<!-- Material Design fonts -->
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+	<link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Marcellus&amp;subset=latin-ext,latin">
+	<!-- Bootstrap -->
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Bootstrap Material Design -->
+	<link href="assets/css/bootstrap-material-design.css" rel="stylesheet">
+	<link href="assets/css/ripples.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="assets/styles/style.css" />
 </head>
 
 <body>
-    <div class="bs-component">
-        <div class="jumbotron bg-white">
-            <div class="header text-center">
-                <!--<h1 class="p-1m">Ore-Ida Council</h1>-->
-                <h2>Knight's Adventure</h2>
-                <img class="img-rounded" height="140px" src="assets/img/knight-logo-modified.jpg" alt="Ore-Ida Council Boyscout Logo">
-                <h2>Cub Day Camp 2016</h2>
-            </div>
-            <div class="panel-body">
-                <div class="col-sm-8 col-sm-offset-2">
-                    <form onsubmit="login(event, this)">
-                        <fieldset>
-                            <div class="form-group label-floating">
-                                <label for="email">Email</label>
-                                <input class="form-control" type="email" name="email"  placeholder="Email" required/>
-                            </div>
-                            <br>
-                            <div class="form-group label-floating">
-                                <label for="pack">Pack Number</label>
-                                <input class="form-control" type="number" placeholder="Pack Number" name="pack" required/>
-                            </div>
-                            <div class="form-group label-floating">
-                                <label for="camp">Day Camp</label>
-                                <select class="form-control" id="selectCamp" name="camp" required>
-                                    <option>--- Choose a camp ---</option>
-                                </select>
-                            </div>
-                            <button class="btn btn-block btn-raised btn-scout-blue" type="submit">Submit</button>
-                        </fieldset>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
-    <script src="assets/js/ripples.min.js"></script>
-    <script src="assets/js/material.min.js"></script>
-		<script src="assets/js/firebase.js"></script>
-		<script src="assets/scripts/fb-service.js"></script>
-    <script src="assets/scripts/login.js"></script>
+	<div class="bs-component" id="login-form">
+		<div class="jumbotron bg-white">
+			<div class="header text-center">
+				<!--<h1 class="p-1m">Ore-Ida Council</h1>-->
+				<h2>Knight's Adventure</h2>
+				<img class="img-rounded" height="140px" src="assets/img/knight-logo-modified.jpg" alt="Ore-Ida Council Boyscout Logo">
+				<h2>Cub Day Camp 2016</h2>
+			</div>
+			<div class="panel-body">
+				<div class="col-sm-8 col-sm-offset-2">
+					<form onsubmit="login(event, this)">
+						<fieldset>
+							<div class="form-group label-floating">
+								<label for="email">Email</label>
+								<input class="form-control" type="email" name="email" placeholder="Email" required/>
+							</div>
+							<br>
+							<div class="form-group label-floating">
+								<label for="pack">Pack Number</label>
+								<input class="form-control" type="number" placeholder="Pack Number" name="pack" required/>
+							</div>
+							<div class="form-group label-floating">
+								<label for="camp">Day Camp</label>
+								<select class="form-control" id="selectCamp" name="camp" required>
+									<option>--- Choose a camp ---</option>
+								</select>
+							</div>
+							<button class="btn btn-block btn-raised btn-scout-blue" type="submit">Submit</button>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="reg-form" hidden></div>
+	<div id="thank-you" hidden></div>
+
+	<script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="assets/js/ripples.min.js"></script>
+	<script src="assets/js/material.min.js"></script>
+	<script src="assets/js/firebase.js"></script>
+	<script src="assets/scripts/fb-service.js"></script>
+	<script src="assets/scripts/login.js"></script>
+	<script src="assets/scripts/price.js"></script>
+	<script src="assets/scripts/registration.js"></script>
+
+	<script>
+		$('#reg-form').load('registration.html')
+		$('#thank-you').load('thankyou.html')
+	</script>
 
 
-    <!--START MATERIAL THEME-->
-    <script>
-        $.material.init()
-    </script>
+	<!--START MATERIAL THEME-->
+	<script>
+		$.material.init()
+	</script>
 
 </body>
 
