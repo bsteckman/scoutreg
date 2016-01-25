@@ -2,8 +2,8 @@ var shirtPrice = 10.00;
 var shirtPriceXXL = 12.00;
 var goldCardMember = false;
 var now = Date.now();
-var earlyBird = new Date(2016, 4, 24).getTime();
-var pp = now < earlyBird ? 30 : 40;
+var earlyBird = new Date(2016, 5, 1).getTime();
+var earlyDiscount = earlyBird < now ? 5 : 0;
 
 var priceElems = {
 	totalPrice: document.getElementById('total-price'),
@@ -59,35 +59,19 @@ function toggleGoldCard(){
 }
 
 function addShirt(currentUser) {
-	if (!currentUser.tShirt) {
+    var validSize = shirts.sizes[currentUser.tShirt];
+    if(validSize === 0){
+        validSize = true;
+    }
+	if (!validSize) {
 		return;
-	}
-	shirts.total++;
-	switch (currentUser.tShirt) {
-		case "Adult-xxl":
-			shirts.sizes.xxl++;
-			break;
-		case "Adult-xl":
-			shirts.sizes.xl++;
-			break;
-		case "Adult-lg":
-			shirts.sizes.lg++;
-			break;
-		case "Adult-md":
-			shirts.sizes.md++;
-			break;
-		case "Adult-sm":
-			shirts.sizes.sm++;
-			break;
-		case "youth-lg":
-			shirts.sizes.ylg++;
-			break;
-		case "youth-md":
-			shirts.sizes.ymd++;
-			break;
-	}
+	}   
+    shirts.total++;
+    shirts.sizes[currentUser.tShirt]++;
 }
 function updatePrices() {
+    var camp = db.getCamp(user.camp);
+    var pp = camp.price - earlyDiscount;
 	for (var size in shirts.sizes) {
 		if (size === "xxl") {
 			shirts.totalPrice += shirts.sizes[size] * shirtPriceXXL;
@@ -95,8 +79,7 @@ function updatePrices() {
 			shirts.totalPrice += shirts.sizes[size] * shirtPrice;
 		}
 	}
-		
-		//FIX Error 'on
+    
 	if (goldCardMember) {
 		formData.discount = 5;
 	} else {
@@ -104,9 +87,17 @@ function updatePrices() {
 	}
 	
 	formData.participants = formData.participants || {};
-	var totalParticipants = Object.keys(formData.participants).length;
+	var totalParticipants = 0;;
+    
+    for(var key in formData.participants){
+        var participant = formData.participants[key];
+
+        if(participant.adult != 'true' && participant.denLeader != 'true'){
+            totalParticipants++;
+        }
+    }
+     
 	var campFee = pp - formData.discount;
-	
 	registration.update({
 		totalParticipants: totalParticipants,
 		totalPrice: totalParticipants * (pp - formData.discount) + shirts.totalPrice,
@@ -117,7 +108,6 @@ function updatePrices() {
 		if (err) { console.log(err); }
 		draw();
 	})
-
 }
 
 function draw() {
@@ -131,7 +121,4 @@ function draw() {
 		var value = formData[key];
 		priceElems[key].textContent = value;
 	}
-
 }
-
-

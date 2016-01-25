@@ -26,12 +26,6 @@
                 <h4>*ALL BSA registered adults MUST be Youth Protection Trained*</h4>
                 <h4>*A mininmum of 2 primary contacts are needed to complete the form*</h4>
                 <!-- Button group modal -->
-
-                <div class="btn-group-horizontal" role="group">
-
-
-
-                </div>
             </div>
             <div class="col-sm-12">
                 <h3>Contacts</h3>
@@ -52,7 +46,7 @@
             <div class="well main-list">
                 <div class="clearfix">
                     <h3>Participants</h3>
-                    <button id="registrant-modal-btn" type="button" class="btn btn-primary btn-lg" onclick="displayModal('participant-modal')"
+                    <button id="registrant-modal-btn" type="button" class="btn btn-primary btn-lg" onclick="displayModal('participants-modal')"
                     disabled="true">
                         Add Participants
                     </button>
@@ -83,8 +77,8 @@
                     <div class="col-sm-4">
                         <h3>Participants</h3>
                         <ul class="list-group">
-                            <li class="list-group-item">Participants: <span class="pull-right" id="total-participants"></span></li>
-                            <li class="list-group-item">Price/Person: <span class="pull-right">$<span id="camp-fee"></span></span>
+                            <li class="list-group-item">Total Scouts: <span class="pull-right" id="total-participants"></span></li>
+                            <li class="list-group-item">Price/Scout: <span class="pull-right">$<span id="camp-fee"></span></span>
                             </li>
                             <li class="list-group-item">Total Shirts Price: <span class="pull-right">$<span id="shirts-price"></span></span>
                             </li>
@@ -96,21 +90,21 @@
                         <h3>Shirts Ordered</h3>
                         <h4><small>$10/shirt *($12/XXL)</small></h4>
                         <!--PRICES START HERE-->
-                        <div class="list-group">
+                        <div class="list-group list-inline">
                             <div class="list-group-item">
-                                Adult XXL: <span id="xxl-shirt-sizes"></span>
+                                XXL: <span id="xxl-shirt-sizes"></span>
                             </div>
                             <div class="list-group-item">
-                                Adult XL: <span id="xl-shirt-sizes"></span>
+                                XL: <span id="xl-shirt-sizes"></span>
                             </div>
                             <div class="list-group-item">
-                                Adult LG: <span id="lg-shirt-sizes"></span>
+                                LG: <span id="lg-shirt-sizes"></span>
                             </div class="list-group-item">
                             <div class="list-group-item">
-                                Adult MD: <span id="md-shirt-sizes"></span>
+                                MD: <span id="md-shirt-sizes"></span>
                             </div>
                             <div class="list-group-item">
-                                Adult SM: <span id="sm-shirt-sizes"></span>
+                                SM: <span id="sm-shirt-sizes"></span>
                             </div>
 
                             <div class="list-group-item">
@@ -124,6 +118,16 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="clearfix">
+                    <h3>Confirm Registration</h3>
+                    <form onsubmit="confirmRegistration(event, this)">
+                        <div class="form-group">
+                            <label for="notes">Notes:</label>
+                            <textarea name="notes" id="form-notes" class="form-control"></textarea>
+                        </div>
+                        <button class="btn btn-raised btn-success btn-block" type="submit">Confirm</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -140,7 +144,8 @@
                 <button id="modal-btn" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="myModalLabel">Primary Contacts</h4>
                 <p>To begin filling out the registration form we first need to know who the primary and secondary contacts will
-                    be.</p>
+                    be.
+                </p>
             </div>
             <div class="modal-body">
                 <form id="contacts-form" onsubmit="addRegistrant(event, this, 'contact')">
@@ -148,38 +153,41 @@
                         <div class="row">
                             <div class="col-xs-12 col-sm-6 form-group">
                                 <label for="firstContactName">First Name:</label>
-                                <input type="text" class="form-control registrant" name="firstName" placeholder="First Name">
+                                <input type="text" class="form-control" name="firstName" placeholder="First Name">
                             </div>
                             <div class="col-xs-12 col-sm-6 form-group">
                                 <label for="lastContactName">Last Name:</label>
-                                <input type="text" class="form-control registrant" name="lastName" placeholder="Last Name">
+                                <input type="text" class="form-control" name="lastName" placeholder="Last Name">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-xs-12 col-sm-3 form-group">
                                 <label for="position">Position:</label>
-                                <input type="text" class="form-control registrant" name="position" placeholder="Position">
+                                <input type="text" class="form-control" name="position" placeholder="Position">
                             </div>
                             <div class="col-xs-12 col-sm-5 form-group">
                                 <label for="email">Email:</label>
-                                <input type="email" class="form-control registrant" name="email" placeholder="Email">
+                                <input type="email" class="form-control" name="email" placeholder="Email">
                             </div>
                             <div class="col-xs-12 col-sm-3 form-group">
                                 <label for="cellPhone">Cell Phone:</label>
-                                <input type="text" class="form-control registrant" name="phoneNumber" placeholder="Phone Number" data-format="+1 (ddd) ddd-dddd">
+                                <input type="text" class="form-control" name="phoneNumber" placeholder="Phone Number" data-format="+1 (ddd) ddd-dddd">
                             </div>
-                            <div>
-                                <input type="hidden" class="form-control registrant" name="isAdult" value="true">
-                                <input type="hidden" class="form-control registrant" name="healthForm" value="false">
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 form-group">
+                                <label for="notes">Notes:</label>
+                                <textarea class="form-control" name="notes" placeholder="Notes..."></textarea>
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Save Contact</button>
+                    <input name="key" value="" hidden/>
+                    <button type="submit" class="btn btn-primary">Save & Add Another</button>
                 </form>
                 <!--End contact form-->
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default close-btn" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default close-btn" data-dismiss="modal">Cancel</button>
             </div>
         </div>
     </div>
@@ -188,63 +196,72 @@
 <!--</form>-->
 
 <!-- Participant Modal -->
-
-<div class="modal fade" id="participant-modal" tabindex="-2" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="participants-modal" tabindex="-2" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <button id="modal-btn" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="myModalLabel">Participant</h4>
-                <p class="alert alert-info" id="reg-message">Two adult participants are required prior to adding scouts</p>
             </div>
             <div class="modal-body">
-                <form id="participant-form" onsubmit="addRegistrant(event, this)">
-                    <div class="">
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-6 form-group">
-                                <label for="firstContactName">First Name:</label>
-                                <input type="text" class="form-control registrant" name="firstName" placeholder="First Name" required>
-                            </div>
-                            <div class="col-xs-12 col-sm-6 form-group">
-                                <label for="lastContactName">Last Name:</label>
-                                <input type="text" class="form-control registrant" name="lastName" placeholder="Last Name" required>
-                            </div>
+                <p class="alert alert-danger" id="reg-message">Two adult participants are required prior to adding scouts</p>
+                <form id="participants-form" onsubmit="addRegistrant(event, this)">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 form-group">
+                            <label for="firstContactName">First Name:</label>
+                            <input type="text" class="form-control registrant" name="firstName" placeholder="First Name" required>
                         </div>
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-3 form-group">
-                                <div class="checkbox chkboxadjust">
-                                    <label>
-                                        <input type="checkbox" onclick="toggleHealthForm(this)" name="healthForm"> Health Form
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-5 form-group">
-                                <div class="checkbox chkboxadjust">
-                                    <label>
-                                        <input type="checkbox" onclick="toggleAdult(this)" value="false" name="isAdult"> Adult
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-3 form-group" id="tShirt">
-                                <select name="tShirt" class="form-control col-sm-2 col-xs-12" id="adjustPdng">
-                                    <option value="false">--- Shirt Size ---</option>
-                                    <option>youth-md</option>
-                                    <option>youth-lg</option>
-                                    <option>Adult-sm</option>
-                                    <option>Adult-md</option>
-                                    <option>Adult-lg</option>
-                                    <option>Adult-xl</option>
-                                    <option>Adult-xxl</option>
-                                </select>
-                            </div>
+                        <div class="col-xs-12 col-sm-6 form-group">
+                            <label for="lastContactName">Last Name:</label>
+                            <input type="text" class="form-control registrant" name="lastName" placeholder="Last Name" required>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Add Next</button>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-9 form-group">
+                            <div class="checkbox chkboxadjust">
+                                <label>
+                                    <input type="checkbox" onclick="toggleValue(this, 'true', 'false')" name="healthForm"> Health Form
+                                </label>
+                            </div>
+                            <div class="checkbox chkboxadjust">
+                                <label>
+                                    <input type="checkbox" onclick="toggleValue(this, 'true', 'false')" name="denLeader"> Den Leader
+                                </label>
+                            </div>
+                            <div class="checkbox chkboxadjust">
+                                <label>
+                                    <input type="checkbox" onclick="toggleValue(this, 'true', 'false')" name="adult"> Adult
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-3 form-group" id="tShirt">
+                            <label for="tShirt">Shirt Size:</label>
+                            <select name="tShirt" class="form-control col-sm-2 col-xs-12" id="adjustPdng">
+                                <option value="false">--- Shirt Size ---</option>
+                                <option vaule="ymd">youth-md</option>
+                                <option value="ylg">youth-lg</option>
+                                <option value="sm">Adult-sm</option>
+                                <option value="md">Adult-md</option>
+                                <option value="lg">Adult-lg</option>
+                                <option value="xl">Adult-xl</option>
+                                <option value="xxl">Adult-xxl</option>
+                                <option value="false">No Thanks</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 form-group">
+                            <label for="notes">Notes:</label>
+                            <textarea class="form-control" name="notes" placeholder="Notes..."></textarea>
+                        </div>
+                    </div>
+                    <input name="key" value="" hidden/>
+                    <button type="submit" class="btn btn-primary">Save & Add Another</button>
                 </form>
                 <!--End contact form-->
             </div>
             <div class="modal-footer">
-                <button id="scout-close-btn" type="button" class="btn btn-default" data-dismiss="modal">Finished</button>
+                <button id="participants-close" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
             </div>
         </div>
     </div>

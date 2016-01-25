@@ -38,3 +38,10 @@ body{
 .adult{
     background-color: #F6F6F6 !important;
 }
+
+
+@media print {
+  .hide-print{
+      display: none;
+  }
+}
