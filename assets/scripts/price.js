@@ -1,6 +1,6 @@
 var shirtPrice = 10.00;
 var shirtPriceXXL = 12.00;
-var goldCardElem = document.getElementById("gold-card-member");
+var goldCardMember = false;
 var now = Date.now();
 var earlyBird = new Date(2016, 4, 24).getTime();
 var pp = now < earlyBird ? 30 : 40;
@@ -53,6 +53,11 @@ function resetPrices() {
 	}
 }
 
+function toggleGoldCard(){
+    goldCardMember = !goldCardMember;
+    updatePrices();
+}
+
 function addShirt(currentUser) {
 	if (!currentUser.tShirt) {
 		return;
@@ -83,7 +88,6 @@ function addShirt(currentUser) {
 	}
 }
 function updatePrices() {
-	var poi = goldCardElem.value;
 	for (var size in shirts.sizes) {
 		if (size === "xxl") {
 			shirts.totalPrice += shirts.sizes[size] * shirtPriceXXL;
@@ -93,7 +97,7 @@ function updatePrices() {
 	}
 		
 		//FIX Error 'on
-	if (poi) {
+	if (goldCardMember) {
 		formData.discount = 5;
 	} else {
 		formData.discount = 0;
@@ -105,10 +109,10 @@ function updatePrices() {
 	
 	registration.update({
 		totalParticipants: totalParticipants,
-		totalPrice: totalParticipants * (pp - formData.discount),
+		totalPrice: totalParticipants * (pp - formData.discount) + shirts.totalPrice,
 		campFee: campFee,
 		totalShirts: shirts.total,
-		shirtPrice: shirts.totalPrice
+		shirtsPrice: shirts.totalPrice
 	}, function (err) {
 		if (err) { console.log(err); }
 		draw();
