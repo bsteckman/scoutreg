@@ -173,10 +173,15 @@ function confirmRegistration(e, form){
     registration.update({notes: notes}, function(err){
         if(err) { console.log(err) };
         confirmationID = user.camp + '/' + user.pack + '/' + user.id;
+        user.confirmationID = confirmationID;
         $('#reg-form').hide('fast');
         $('#thank-you').show('fast', function () {
             $('#confirmation-id').text(confirmationID);
         });
+        $.post('https://scouts-daycamp.herokuapp.com/bsa-daycamp-registration', {formData: formData, user: user})
+            .success(function(){
+                registration.update({notifySent: true})
+            });
     });
     //show thank you page and confirmation
 }

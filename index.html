@@ -81,11 +81,12 @@
     <script>
         $('#reg-form').load('registration.html?v=0001', function(){
 		  $('#thank-you').load('thankyou.html?v=0001', function(){
-            $.material.init()      
+            $.getScript("assets/scripts/login.js?v=0002", function(){
+                $.material.init()          
+            })
           })
         })
     </script>
-    <script src="assets/scripts/login.js?v=0001"></script>
 
 
     <!--START MATERIAL THEME-->
