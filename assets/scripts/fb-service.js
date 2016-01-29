@@ -26,7 +26,9 @@ function firebaseService() {
 				firebaseLogin.child('packs').child(user.pack).child('users').child(user.id).update(user)
 				firebaseLogin.child('users').child(user.id).child('packs').child(user.pack).update(user);
 				//create camp form
-				firebaseLogin.child('camp-forms').child('2016').child(user.camp).child(user.pack).child(user.id).update({registrar: user.email});
+				var t = new Date();
+				var year = t.getFullYear();
+				firebaseLogin.child('camp-forms').child(year).child(user.camp).child(user.pack).child(user.id).update({registrar: user.email});
 				cb(user);
 			} else {
 				console.log('something went wrong');

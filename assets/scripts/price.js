@@ -103,8 +103,7 @@ function updatePrices() {
         totalParticipants: totalParticipants,
         totalPrice: totalParticipants * (pp - formData.discount) + shirts.totalPrice,
         campFee: campFee,
-        totalShirts: shirts.total,
-        shirtsPrice: shirts.totalPrice
+				shirts: shirts
     }, function (err) {
         if (err) { console.log(err); }
         draw();
